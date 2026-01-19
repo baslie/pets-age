@@ -23,8 +23,9 @@
 
 | Категория | Технология | Версия |
 |-----------|------------|--------|
-| Фреймворк | Next.js (App Router) | 15.1.x |
-| Язык | TypeScript | 5.7.x |
+| Фреймворк | Next.js (App Router) | 16.1.x |
+| UI | React | 19.x |
+| Язык | TypeScript | 5.x |
 | Стилизация | Tailwind CSS | 4.x |
 | Анимации | Framer Motion | 12.x |
 | i18n | next-intl | 4.x |

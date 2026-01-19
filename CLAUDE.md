@@ -23,8 +23,9 @@ const calculateHumanAge = (dogAgeInYears: number): number => {
 
 | Технология | Версия | Назначение |
 |------------|--------|------------|
-| Next.js | 15.1.x | App Router, SSR/SSG |
-| TypeScript | 5.7.x | Типизация |
+| Next.js | 16.1.x | App Router, SSR/SSG |
+| React | 19.x | UI библиотека |
+| TypeScript | 5.x | Типизация |
 | Tailwind CSS | 4.x | Стилизация |
 | Framer Motion | 12.x | Анимации |
 | next-intl | 4.x | Интернационализация |
@@ -305,7 +306,7 @@ const springConfig = {
 ## Этапы разработки
 
 ### Этап 1: Базовая функциональность
-1. Инициализация Next.js 15 + TypeScript
+1. Инициализация Next.js 16 + TypeScript
 2. Настройка Tailwind CSS 4
 3. Компонент калькулятора с ползунками
 4. Функция расчёта возраста
