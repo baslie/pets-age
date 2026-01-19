@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { trackCookieConsent } from '@/lib/analytics';
@@ -68,9 +69,9 @@ export default function CookieConsent() {
             </div>
             <p className="text-xs text-gray-500 mt-3">
               {t('learnMore')}{' '}
-              <a href="/privacy" className="underline hover:text-blue-500">
+              <Link href="/privacy" className="underline hover:text-blue-500">
                 {t('privacyPolicy')}
-              </a>
+              </Link>
             </p>
           </div>
         </motion.div>
