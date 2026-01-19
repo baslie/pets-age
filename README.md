@@ -29,7 +29,7 @@
 | Стилизация | Tailwind CSS | 4.x |
 | Анимации | Framer Motion | 12.x |
 | i18n | next-intl | 4.x |
-| PWA | @ducanh2912/next-pwa | 5.6.x |
+| PWA | Serwist | 9.x |
 | Node.js | Node.js | 22.x LTS |
 | Хостинг | Vercel | — |
 
