@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import AgeSlider from './AgeSlider';
@@ -8,6 +8,7 @@ import DatePicker from './DatePicker';
 import ResultDisplay from './ResultDisplay';
 import DogIllustration from './DogIllustration';
 import { calculateHumanAge, toDecimalYears } from '@/lib/calculateAge';
+import { trackCalculateAge } from '@/lib/analytics';
 
 type InputMode = 'slider' | 'date';
 
@@ -31,6 +32,23 @@ export default function Calculator() {
   const humanAge = useMemo(() => {
     return calculateHumanAge(dogAgeInYears);
   }, [dogAgeInYears]);
+
+  // Track analytics with debounce
+  const lastTrackedAge = useRef<number | null>(null);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Only track if age has changed significantly (more than 0.1 years)
+      if (
+        lastTrackedAge.current === null ||
+        Math.abs(dogAgeInYears - lastTrackedAge.current) >= 0.1
+      ) {
+        trackCalculateAge(dogAgeInYears, humanAge);
+        lastTrackedAge.current = dogAgeInYears;
+      }
+    }, 1000); // Debounce 1 second
+
+    return () => clearTimeout(timer);
+  }, [dogAgeInYears, humanAge]);
 
   const handleDateAgeChange = useCallback((y: number, m: number, d: number) => {
     setYears(y);
