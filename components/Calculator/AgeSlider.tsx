@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { motion, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 
 interface AgeSliderProps {
   label: string;
@@ -10,26 +11,39 @@ interface AgeSliderProps {
   onChange: (value: number) => void;
 }
 
+const springConfig = {
+  stiffness: 300,
+  damping: 20,
+};
+
 export default function AgeSlider({ label, value, min, max, onChange }: AgeSliderProps) {
   const [isEditing, setIsEditing] = useState(false);
-  const [inputValue, setInputValue] = useState(value.toString());
+  const [editValue, setEditValue] = useState('');
+  const prefersReducedMotion = useReducedMotion();
+
+  const springValue = useSpring(value, prefersReducedMotion ? { duration: 0 } : springConfig);
+  const displayValue = useTransform(springValue, (v) => Math.round(v));
+
+  useEffect(() => {
+    springValue.set(value);
+  }, [value, springValue]);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(Number(e.target.value));
+    const newValue = Number(e.target.value);
+    onChange(newValue);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    setEditValue(e.target.value);
   };
 
   const handleInputBlur = () => {
-    const num = parseInt(inputValue, 10);
+    const num = parseInt(editValue, 10);
     if (!isNaN(num) && num >= min && num <= max) {
       onChange(num);
-    } else {
-      setInputValue(value.toString());
     }
     setIsEditing(false);
+    setEditValue('');
   };
 
   const handleInputKeyDown = (e: React.KeyboardEvent) => {
@@ -37,13 +51,13 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
       handleInputBlur();
     }
     if (e.key === 'Escape') {
-      setInputValue(value.toString());
       setIsEditing(false);
+      setEditValue('');
     }
   };
 
   const handleValueClick = () => {
-    setInputValue(value.toString());
+    setEditValue(value.toString());
     setIsEditing(true);
   };
 
@@ -52,9 +66,9 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
       <div className="flex justify-between items-center mb-2">
         <label className="font-bold text-lg">{label}</label>
         {isEditing ? (
-          <input
+          <motion.input
             type="number"
-            value={inputValue}
+            value={editValue}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             onKeyDown={handleInputKeyDown}
@@ -62,26 +76,38 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
             max={max}
             autoFocus
             className="w-16 text-center font-bold text-xl border-2 border-black p-1"
+            initial={prefersReducedMotion ? {} : { scale: 1.1 }}
+            animate={prefersReducedMotion ? {} : { scale: 1 }}
+            transition={{ type: 'spring', ...springConfig }}
           />
         ) : (
-          <button
+          <motion.button
             onClick={handleValueClick}
             className="font-bold text-2xl tabular-nums min-w-[3rem] text-center hover:bg-yellow-200 px-2 py-1 border-2 border-transparent hover:border-black transition-colors"
             title="Click to edit"
+            whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+            whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
           >
-            {value}
-          </button>
+            <motion.span>{displayValue}</motion.span>
+          </motion.button>
         )}
       </div>
-      <input
-        type="range"
-        min={min}
-        max={max}
-        value={value}
-        onChange={handleSliderChange}
-        className="w-full h-12 touch-manipulation"
-        style={{ touchAction: 'manipulation' }}
-      />
+      <motion.div
+        className="relative"
+        whileHover={prefersReducedMotion ? {} : { scale: 1.01 }}
+        transition={{ type: 'spring', ...springConfig }}
+      >
+        <input
+          type="range"
+          min={min}
+          max={max}
+          step={1}
+          value={value}
+          onChange={handleSliderChange}
+          className="w-full h-12 touch-manipulation"
+          style={{ touchAction: 'manipulation' }}
+        />
+      </motion.div>
       <div className="flex justify-between text-sm text-gray-600 mt-1">
         <span>{min}</span>
         <span>{max}</span>
