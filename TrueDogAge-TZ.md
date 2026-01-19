@@ -57,7 +57,7 @@
 | Хостинг | Vercel | — |
 | Аналитика | Google Analytics 4 | — |
 | Аналитика | Яндекс.Метрика | — |
-| PWA | @ducanh2912/next-pwa | 5.6.x |
+| PWA | Serwist | 9.x |
 | Node.js | Node.js | 22.x LTS |
 
 ---
