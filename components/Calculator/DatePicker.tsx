@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 interface DatePickerProps {
   onAgeChange: (years: number, months: number, days: number) => void;
@@ -13,6 +14,7 @@ const springConfig = {
 };
 
 export default function DatePicker({ onAgeChange }: DatePickerProps) {
+  const t = useTranslations('calculator');
   const [birthDate, setBirthDate] = useState<string>('');
   const prefersReducedMotion = useReducedMotion();
 
@@ -59,7 +61,7 @@ export default function DatePicker({ onAgeChange }: DatePickerProps) {
       transition={{ type: 'spring', ...springConfig }}
     >
       <label className="font-bold text-lg block mb-2">
-        Enter birthdate
+        {t('useBirthdate')}
       </label>
       <motion.input
         type="date"

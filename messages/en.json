@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "TrueDogAge — Real Dog Age Calculator",
+    "description": "Calculate your dog's age in human years using science"
+  },
+  "calculator": {
+    "title": "How old is your dog?",
+    "subtitle": "Calculate your dog's real age in human years using science",
+    "years": "Years",
+    "months": "Months",
+    "days": "Days",
+    "useBirthdate": "Use birthdate",
+    "useSliders": "Use sliders",
+    "result": "In human years:",
+    "yearsOld": "{count, plural, one {# year} other {# years}}",
+    "monthsOld": "{count, plural, one {# month} other {# months}}",
+    "daysOld": "{count, plural, one {# day} other {# days}}",
+    "ageDisplay": "{years} years, {months} months, {days} days"
+  },
+  "info": {
+    "title": "The Science",
+    "description": "Traditional formula (7 human years = 1 dog year) is inaccurate. Our calculator uses epigenetic clock research from UC San Diego (2020) which analyzed DNA methylation patterns to determine biological aging.",
+    "disclaimer": "Based on Labrador Retrievers research. Results may vary for different breeds.",
+    "basedOn": "Based on epigenetic clock research by UC San Diego (2020)",
+    "formula": "Formula: 16 × ln(dog age) + 31"
+  },
+  "share": {
+    "title": "Share result",
+    "text": "My dog is {dogAge} years old — that's {humanAge} in human years! Calculate your dog's age: truedogage.com",
+    "copied": "Link copied!"
+  },
+  "language": {
+    "select": "Language"
+  }
+}
