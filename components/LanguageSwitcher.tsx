@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { locales, localeNames, type Locale } from '@/i18n/config';
+import { trackLanguageChange } from '@/lib/analytics';
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
@@ -16,6 +17,7 @@ export default function LanguageSwitcher() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleLocaleChange = (newLocale: Locale) => {
+    trackLanguageChange(newLocale);
     const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`) || `/${newLocale}`;
     router.push(newPathname);
     setIsOpen(false);
