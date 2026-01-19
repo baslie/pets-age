@@ -29,7 +29,7 @@ const calculateHumanAge = (dogAgeInYears: number): number => {
 | Tailwind CSS | 4.x | Стилизация |
 | Framer Motion | 12.x | Анимации |
 | next-intl | 4.x | Интернационализация |
-| @ducanh2912/next-pwa | 5.6.x | PWA функционал |
+| Serwist | 9.x | PWA функционал |
 | Node.js | 22.x LTS | Runtime |
 
 ---
@@ -363,3 +363,4 @@ const springConfig = {
 - [next-intl Docs](https://next-intl-docs.vercel.app/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Serwist (PWA)](https://serwist.pages.dev/)
