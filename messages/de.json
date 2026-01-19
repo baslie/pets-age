@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "TrueDogAge — Hundealter-Rechner",
+    "description": "Berechne das wahre Alter deines Hundes in Menschenjahren"
+  },
+  "calculator": {
+    "title": "Wie alt ist dein Hund?",
+    "subtitle": "Berechne das wahre Alter deines Hundes wissenschaftlich",
+    "years": "Jahre",
+    "months": "Monate",
+    "days": "Tage",
+    "useBirthdate": "Geburtsdatum eingeben",
+    "useSliders": "Schieberegler verwenden",
+    "result": "In Menschenjahren:",
+    "yearsOld": "{count, plural, one {# Jahr} other {# Jahre}}",
+    "monthsOld": "{count, plural, one {# Monat} other {# Monate}}",
+    "daysOld": "{count, plural, one {# Tag} other {# Tage}}",
+    "ageDisplay": "{years} Jahre, {months} Monate, {days} Tage"
+  },
+  "info": {
+    "title": "Die Wissenschaft",
+    "description": "Die traditionelle Formel (7 Menschenjahre = 1 Hundejahr) ist ungenau. Unser Rechner verwendet epigenetische Forschung der UC San Diego (2020), die DNA-Methylierungsmuster analysierte.",
+    "disclaimer": "Basierend auf Labrador-Retriever-Forschung. Ergebnisse können bei anderen Rassen abweichen.",
+    "basedOn": "Basierend auf epigenetischer Forschung der UC San Diego (2020)",
+    "formula": "Formel: 16 × ln(Hundealter) + 31"
+  },
+  "share": {
+    "title": "Ergebnis teilen",
+    "text": "Mein Hund ist {dogAge} Jahre alt — das sind {humanAge} Menschenjahre! Berechne das Alter deines Hundes: truedogage.com",
+    "copied": "Link kopiert!"
+  },
+  "language": {
+    "select": "Sprache"
+  }
+}

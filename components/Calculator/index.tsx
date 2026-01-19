@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useCallback } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import AgeSlider from './AgeSlider';
 import DatePicker from './DatePicker';
 import ResultDisplay from './ResultDisplay';
@@ -16,6 +17,7 @@ const springConfig = {
 };
 
 export default function Calculator() {
+  const t = useTranslations('calculator');
   const [years, setYears] = useState(3);
   const [months, setMonths] = useState(0);
   const [days, setDays] = useState(0);
@@ -48,7 +50,7 @@ export default function Calculator() {
       transition={{ type: 'spring', ...springConfig }}
     >
       <h2 className="text-2xl font-bold text-center mb-6">
-        How old is your dog?
+        {t('title')}
       </h2>
 
       <DogIllustration dogAgeInYears={dogAgeInYears} />
@@ -60,7 +62,7 @@ export default function Calculator() {
           whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
           whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
         >
-          {inputMode === 'slider' ? 'Use birthdate' : 'Use sliders'}
+          {inputMode === 'slider' ? t('useBirthdate') : t('useSliders')}
         </motion.button>
       </div>
 
@@ -73,7 +75,7 @@ export default function Calculator() {
           transition={{ type: 'spring', ...springConfig }}
         >
           <AgeSlider
-            label="Years"
+            label={t('years')}
             value={years}
             min={0}
             max={25}
@@ -81,7 +83,7 @@ export default function Calculator() {
           />
 
           <AgeSlider
-            label="Months"
+            label={t('months')}
             value={months}
             min={0}
             max={11}
@@ -89,7 +91,7 @@ export default function Calculator() {
           />
 
           <AgeSlider
-            label="Days"
+            label={t('days')}
             value={days}
             min={0}
             max={30}
@@ -107,7 +109,7 @@ export default function Calculator() {
           <DatePicker onAgeChange={handleDateAgeChange} />
           <div className="text-center text-gray-600 text-sm">
             <p>
-              {years} years, {months} months, {days} days
+              {t('ageDisplay', { years, months, days })}
             </p>
           </div>
         </motion.div>

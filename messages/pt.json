@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "TrueDogAge — Calculadora de Idade do Cão",
+    "description": "Calcule a idade real do seu cão em anos humanos com ciência"
+  },
+  "calculator": {
+    "title": "Quantos anos tem o seu cão?",
+    "subtitle": "Calcule a idade real do seu cão em anos humanos",
+    "years": "Anos",
+    "months": "Meses",
+    "days": "Dias",
+    "useBirthdate": "Usar data de nascimento",
+    "useSliders": "Usar controles",
+    "result": "Em anos humanos:",
+    "yearsOld": "{count, plural, one {# ano} other {# anos}}",
+    "monthsOld": "{count, plural, one {# mês} other {# meses}}",
+    "daysOld": "{count, plural, one {# dia} other {# dias}}",
+    "ageDisplay": "{years} anos, {months} meses, {days} dias"
+  },
+  "info": {
+    "title": "A Ciência",
+    "description": "A fórmula tradicional (7 anos humanos = 1 ano de cão) é imprecisa. Nossa calculadora usa pesquisa epigenética da UC San Diego (2020) que analisou padrões de metilação do DNA.",
+    "disclaimer": "Baseado em pesquisa com Labrador Retrievers. Os resultados podem variar para outras raças.",
+    "basedOn": "Baseado em pesquisa epigenética da UC San Diego (2020)",
+    "formula": "Fórmula: 16 × ln(idade do cão) + 31"
+  },
+  "share": {
+    "title": "Compartilhar resultado",
+    "text": "Meu cão tem {dogAge} anos — são {humanAge} anos humanos! Calcule a idade do seu cão: truedogage.com",
+    "copied": "Link copiado!"
+  },
+  "language": {
+    "select": "Idioma"
+  }
+}
