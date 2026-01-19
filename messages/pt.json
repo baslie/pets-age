@@ -31,5 +31,13 @@
   },
   "language": {
     "select": "Idioma"
+  },
+  "cookie": {
+    "title": "Configurações de cookies",
+    "description": "Usamos cookies para analisar o tráfego e melhorar sua experiência. Ao clicar em \"Aceitar\", você consente com o uso de cookies.",
+    "accept": "Aceitar",
+    "decline": "Recusar",
+    "learnMore": "Saiba mais em nossa",
+    "privacyPolicy": "Política de Privacidade"
   }
 }
