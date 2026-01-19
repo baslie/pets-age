@@ -2,12 +2,14 @@
 
 import { motion, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface ResultDisplayProps {
   humanAge: number;
 }
 
 export default function ResultDisplay({ humanAge }: ResultDisplayProps) {
+  const t = useTranslations('calculator');
   const prefersReducedMotion = useReducedMotion();
 
   const springConfig = {
@@ -24,7 +26,7 @@ export default function ResultDisplay({ humanAge }: ResultDisplayProps) {
 
   return (
     <div className="text-center py-8">
-      <p className="text-lg font-medium text-gray-600 mb-2">In human years:</p>
+      <p className="text-lg font-medium text-gray-600 mb-2">{t('result')}</p>
       <motion.div
         className="text-7xl font-bold tabular-nums text-blue-600"
         initial={prefersReducedMotion ? {} : { scale: 0.8, opacity: 0 }}
@@ -33,7 +35,6 @@ export default function ResultDisplay({ humanAge }: ResultDisplayProps) {
       >
         <motion.span>{displayValue}</motion.span>
       </motion.div>
-      <p className="text-lg text-gray-500 mt-2">years old</p>
     </div>
   );
 }

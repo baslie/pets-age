@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "TrueDogAge — Calcolatore Età del Cane",
+    "description": "Calcola la vera età del tuo cane in anni umani con la scienza"
+  },
+  "calculator": {
+    "title": "Quanti anni ha il tuo cane?",
+    "subtitle": "Calcola la vera età del tuo cane in anni umani",
+    "years": "Anni",
+    "months": "Mesi",
+    "days": "Giorni",
+    "useBirthdate": "Usa data di nascita",
+    "useSliders": "Usa cursori",
+    "result": "In anni umani:",
+    "yearsOld": "{count, plural, one {# anno} other {# anni}}",
+    "monthsOld": "{count, plural, one {# mese} other {# mesi}}",
+    "daysOld": "{count, plural, one {# giorno} other {# giorni}}",
+    "ageDisplay": "{years} anni, {months} mesi, {days} giorni"
+  },
+  "info": {
+    "title": "La Scienza",
+    "description": "La formula tradizionale (7 anni umani = 1 anno del cane) è imprecisa. Il nostro calcolatore utilizza la ricerca epigenetica della UC San Diego (2020) che ha analizzato i modelli di metilazione del DNA.",
+    "disclaimer": "Basato su ricerche sui Labrador Retriever. I risultati possono variare per razze diverse.",
+    "basedOn": "Basato su ricerca epigenetica della UC San Diego (2020)",
+    "formula": "Formula: 16 × ln(età del cane) + 31"
+  },
+  "share": {
+    "title": "Condividi risultato",
+    "text": "Il mio cane ha {dogAge} anni — sono {humanAge} anni umani! Calcola l'età del tuo cane: truedogage.com",
+    "copied": "Link copiato!"
+  },
+  "language": {
+    "select": "Lingua"
+  }
+}

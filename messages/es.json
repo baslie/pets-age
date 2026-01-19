@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "TrueDogAge — Calculadora de Edad de Perros",
+    "description": "Calcula la edad real de tu perro en años humanos con ciencia"
+  },
+  "calculator": {
+    "title": "¿Cuántos años tiene tu perro?",
+    "subtitle": "Calcula la edad real de tu perro en años humanos",
+    "years": "Años",
+    "months": "Meses",
+    "days": "Días",
+    "useBirthdate": "Usar fecha de nacimiento",
+    "useSliders": "Usar controles",
+    "result": "En años humanos:",
+    "yearsOld": "{count, plural, one {# año} other {# años}}",
+    "monthsOld": "{count, plural, one {# mes} other {# meses}}",
+    "daysOld": "{count, plural, one {# día} other {# días}}",
+    "ageDisplay": "{years} años, {months} meses, {days} días"
+  },
+  "info": {
+    "title": "La Ciencia",
+    "description": "La fórmula tradicional (7 años humanos = 1 año de perro) es incorrecta. Nuestro calculador usa investigación epigenética de UC San Diego (2020) que analizó patrones de metilación del ADN.",
+    "disclaimer": "Basado en investigación de Labrador Retrievers. Los resultados pueden variar para otras razas.",
+    "basedOn": "Basado en investigación epigenética de UC San Diego (2020)",
+    "formula": "Fórmula: 16 × ln(edad del perro) + 31"
+  },
+  "share": {
+    "title": "Compartir resultado",
+    "text": "Mi perro tiene {dogAge} años — ¡son {humanAge} años humanos! Calcula la edad de tu perro: truedogage.com",
+    "copied": "¡Enlace copiado!"
+  },
+  "language": {
+    "select": "Idioma"
+  }
+}

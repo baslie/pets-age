@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "TrueDogAge — Calculateur d'Âge du Chien",
+    "description": "Calculez l'âge réel de votre chien en années humaines"
+  },
+  "calculator": {
+    "title": "Quel âge a votre chien ?",
+    "subtitle": "Calculez l'âge réel de votre chien en années humaines",
+    "years": "Années",
+    "months": "Mois",
+    "days": "Jours",
+    "useBirthdate": "Utiliser la date de naissance",
+    "useSliders": "Utiliser les curseurs",
+    "result": "En années humaines :",
+    "yearsOld": "{count, plural, one {# an} other {# ans}}",
+    "monthsOld": "{count, plural, one {# mois} other {# mois}}",
+    "daysOld": "{count, plural, one {# jour} other {# jours}}",
+    "ageDisplay": "{years} ans, {months} mois, {days} jours"
+  },
+  "info": {
+    "title": "La Science",
+    "description": "La formule traditionnelle (7 années humaines = 1 année de chien) est inexacte. Notre calculateur utilise la recherche épigénétique de l'UC San Diego (2020) qui a analysé les modèles de méthylation de l'ADN.",
+    "disclaimer": "Basé sur des recherches sur les Labrador Retrievers. Les résultats peuvent varier selon les races.",
+    "basedOn": "Basé sur la recherche épigénétique de l'UC San Diego (2020)",
+    "formula": "Formule : 16 × ln(âge du chien) + 31"
+  },
+  "share": {
+    "title": "Partager le résultat",
+    "text": "Mon chien a {dogAge} ans — c'est {humanAge} en années humaines ! Calculez l'âge de votre chien : truedogage.com",
+    "copied": "Lien copié !"
+  },
+  "language": {
+    "select": "Langue"
+  }
+}
