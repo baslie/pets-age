@@ -37,14 +37,6 @@ export const trackCalculateAge = (dogAge: number, humanAge: number) => {
     dog_age: dogAge,
     human_age: humanAge,
   });
-
-  // Yandex Metrika goal
-  if (isAnalyticsEnabled() && window.ym && YM_COUNTER_ID) {
-    window.ym(Number(YM_COUNTER_ID), 'reachGoal', 'calculate_age', {
-      dog_age: dogAge,
-      human_age: humanAge,
-    });
-  }
 };
 
 export const trackShare = (platform: string) => {
@@ -52,22 +44,12 @@ export const trackShare = (platform: string) => {
     platform,
     content_type: 'result',
   });
-
-  // Yandex Metrika goal
-  if (isAnalyticsEnabled() && window.ym && YM_COUNTER_ID) {
-    window.ym(Number(YM_COUNTER_ID), 'reachGoal', 'share', { platform });
-  }
 };
 
 export const trackLanguageChange = (language: string) => {
   trackEvent('change_language', {
     language,
   });
-
-  // Yandex Metrika goal
-  if (isAnalyticsEnabled() && window.ym && YM_COUNTER_ID) {
-    window.ym(Number(YM_COUNTER_ID), 'reachGoal', 'change_language', { language });
-  }
 };
 
 export const trackCookieConsent = (accepted: boolean) => {
