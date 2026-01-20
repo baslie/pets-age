@@ -7,6 +7,7 @@ import AgeSlider from './AgeSlider';
 import DatePicker from './DatePicker';
 import ResultDisplay from './ResultDisplay';
 import DogIllustration from './DogIllustration';
+import ShareButtons from '@/components/ShareButtons';
 import { calculateHumanAge, toDecimalYears } from '@/lib/calculateAge';
 import { trackCalculateAge } from '@/lib/analytics';
 
@@ -149,6 +150,9 @@ export default function Calculator() {
           </div>
         </motion.div>
       )}
+
+      {/* Share buttons */}
+      <ShareButtons dogAge={dogAgeInYears} humanAge={humanAge} />
     </motion.div>
   );
 }
