@@ -39,5 +39,19 @@
     "decline": "Decline",
     "learnMore": "Learn more in our",
     "privacyPolicy": "Privacy Policy"
+  },
+  "dog": {
+    "stage1": "2 months",
+    "stage2": "6 months",
+    "stage3": "1 year",
+    "stage4": "2 years",
+    "stage5": "4 years",
+    "stage6": "6 years",
+    "stage7": "8 years",
+    "stage8": "10 years",
+    "stage9": "12 years",
+    "stage10": "14 years",
+    "stage11": "16 years",
+    "stage12": "18+ years"
   }
 }

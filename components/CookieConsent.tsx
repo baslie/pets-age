@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { trackCookieConsent } from '@/lib/analytics';
+import { Button } from '@/components/ui/button';
 
 export default function CookieConsent() {
   const t = useTranslations('cookie');
@@ -44,32 +45,28 @@ export default function CookieConsent() {
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-md z-50"
         >
-          <div className="bg-white border-3 border-black shadow-[4px_4px_0_#000] p-4 md:p-6">
+          <div className="bg-secondary-background border-2 border-border shadow-shadow rounded-base p-4 md:p-6">
             <h3 className="font-bold text-lg mb-2">{t('title')}</h3>
-            <p className="text-sm text-gray-700 mb-4">{t('description')}</p>
+            <p className="text-sm text-foreground/80 mb-4">{t('description')}</p>
             <div className="flex flex-col sm:flex-row gap-2">
-              <button
+              <Button
                 onClick={handleAccept}
-                className="flex-1 bg-blue-500 text-white border-3 border-black shadow-[4px_4px_0_#000]
-                           hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000]
-                           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none
-                           transition-all px-4 py-2 font-bold text-sm"
+                variant="default"
+                className="flex-1"
               >
                 {t('accept')}
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleDecline}
-                className="flex-1 bg-gray-200 text-gray-800 border-3 border-black shadow-[4px_4px_0_#000]
-                           hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000]
-                           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none
-                           transition-all px-4 py-2 font-bold text-sm"
+                variant="neutral"
+                className="flex-1"
               >
                 {t('decline')}
-              </button>
+              </Button>
             </div>
-            <p className="text-xs text-gray-500 mt-3">
+            <p className="text-xs text-foreground/50 mt-3">
               {t('learnMore')}{' '}
-              <Link href="/privacy" className="underline hover:text-blue-500">
+              <Link href="/privacy" className="underline hover:text-main">
                 {t('privacyPolicy')}
               </Link>
             </p>

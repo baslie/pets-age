@@ -26,9 +26,9 @@ export default function ResultDisplay({ humanAge }: ResultDisplayProps) {
 
   return (
     <div className="text-center py-8">
-      <p className="text-lg font-medium text-gray-600 mb-2">{t('result')}</p>
+      <p className="text-lg font-medium text-foreground/60 mb-2">{t('result')}</p>
       <motion.div
-        className="text-7xl font-bold tabular-nums text-blue-600"
+        className="text-7xl font-bold tabular-nums text-main"
         initial={prefersReducedMotion ? {} : { scale: 0.8, opacity: 0 }}
         animate={prefersReducedMotion ? {} : { scale: 1, opacity: 1 }}
         transition={{ type: 'spring', ...springConfig }}

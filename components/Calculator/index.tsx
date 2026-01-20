@@ -9,6 +9,7 @@ import ResultDisplay from './ResultDisplay';
 import DogIllustration from './DogIllustration';
 import { calculateHumanAge, toDecimalYears } from '@/lib/calculateAge';
 import { trackCalculateAge } from '@/lib/analytics';
+import { Button } from '@/components/ui/button';
 
 type InputMode = 'slider' | 'date';
 
@@ -62,7 +63,7 @@ export default function Calculator() {
 
   return (
     <motion.div
-      className="card-brutal p-6 md:p-8 max-w-md mx-auto"
+      className="rounded-base border-2 border-border shadow-shadow bg-secondary-background p-6 md:p-8 max-w-md mx-auto"
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
       animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
       transition={{ type: 'spring', ...springConfig }}
@@ -71,17 +72,18 @@ export default function Calculator() {
         {t('title')}
       </h2>
 
-      <DogIllustration dogAgeInYears={dogAgeInYears} />
+      <div className="flex items-center justify-center gap-4 mb-6">
+        <DogIllustration dogAgeInYears={dogAgeInYears} />
+        <ResultDisplay humanAge={humanAge} />
+      </div>
 
       <div className="flex justify-center mb-6">
-        <motion.button
+        <Button
           onClick={toggleInputMode}
-          className="btn-brutal bg-yellow-400 text-black px-4 py-2 font-bold"
-          whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-          whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
+          variant="default"
         >
           {inputMode === 'slider' ? t('useBirthdate') : t('useSliders')}
-        </motion.button>
+        </Button>
       </div>
 
       {inputMode === 'slider' ? (
@@ -125,7 +127,7 @@ export default function Calculator() {
           transition={{ type: 'spring', ...springConfig }}
         >
           <DatePicker onAgeChange={handleDateAgeChange} />
-          <div className="text-center text-gray-600 text-sm">
+          <div className="text-center text-foreground/60 text-sm">
             <p>
               {t('ageDisplay', { years, months, days })}
             </p>
@@ -133,9 +135,6 @@ export default function Calculator() {
         </motion.div>
       )}
 
-      <div className="border-t-3 border-black mt-6 pt-4">
-        <ResultDisplay humanAge={humanAge} />
-      </div>
     </motion.div>
   );
 }

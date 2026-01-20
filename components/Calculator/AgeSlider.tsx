@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, useSpring, useTransform, useReducedMotion } from 'framer-motion';
+import { Slider } from '@/components/ui/slider';
 
 interface AgeSliderProps {
   label: string;
@@ -28,8 +29,8 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
     springValue.set(value);
   }, [value, springValue]);
 
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = Number(e.target.value);
+  const handleSliderChange = (values: number[]) => {
+    const newValue = values[0];
     onChange(newValue);
   };
 
@@ -75,7 +76,7 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
             min={min}
             max={max}
             autoFocus
-            className="w-16 text-center font-bold text-xl border-2 border-black p-1"
+            className="w-16 text-center font-bold text-xl border-2 border-border rounded-base p-1 bg-secondary-background"
             initial={prefersReducedMotion ? {} : { scale: 1.1 }}
             animate={prefersReducedMotion ? {} : { scale: 1 }}
             transition={{ type: 'spring', ...springConfig }}
@@ -83,7 +84,7 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
         ) : (
           <motion.button
             onClick={handleValueClick}
-            className="font-bold text-2xl tabular-nums min-w-[3rem] text-center hover:bg-yellow-200 px-2 py-1 border-2 border-transparent hover:border-black transition-colors"
+            className="font-bold text-2xl tabular-nums min-w-[3rem] text-center hover:bg-main/20 px-2 py-1 border-2 border-transparent hover:border-border rounded-base transition-colors"
             title="Click to edit"
             whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
             whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
@@ -93,22 +94,20 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
         )}
       </div>
       <motion.div
-        className="relative"
+        className="relative py-2"
         whileHover={prefersReducedMotion ? {} : { scale: 1.01 }}
         transition={{ type: 'spring', ...springConfig }}
       >
-        <input
-          type="range"
+        <Slider
           min={min}
           max={max}
           step={1}
-          value={value}
-          onChange={handleSliderChange}
-          className="w-full h-12 touch-manipulation"
-          style={{ touchAction: 'manipulation' }}
+          value={[value]}
+          onValueChange={handleSliderChange}
+          className="touch-manipulation"
         />
       </motion.div>
-      <div className="flex justify-between text-sm text-gray-600 mt-1">
+      <div className="flex justify-between text-sm text-foreground/60 mt-1">
         <span>{min}</span>
         <span>{max}</span>
       </div>

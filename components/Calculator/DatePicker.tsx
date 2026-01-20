@@ -69,7 +69,7 @@ export default function DatePicker({ onAgeChange }: DatePickerProps) {
         onChange={handleDateChange}
         min={minDate}
         max={maxDate}
-        className="w-full p-3 text-lg border-3 border-black bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-3 text-lg border-2 border-border rounded-base bg-secondary-background focus:outline-none focus:ring-2 focus:ring-ring"
         whileFocus={prefersReducedMotion ? {} : { scale: 1.02 }}
         transition={{ type: 'spring', ...springConfig }}
       />

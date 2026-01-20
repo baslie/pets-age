@@ -154,7 +154,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta name="application-name" content="TrueDogAge" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -181,7 +181,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
         <JsonLd locale={locale} />
       </head>
-      <body className="antialiased font-sans">
+      <body className="antialiased font-sans" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           {children}
           <CookieConsent />
