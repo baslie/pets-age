@@ -87,7 +87,7 @@ export default function LanguageSwitcher() {
               <li key={loc}>
                 <button
                   onClick={() => handleLocaleChange(loc)}
-                  className={`w-full px-4 py-3 text-left font-medium flex items-center gap-3 hover:bg-main/20 transition-colors ${
+                  className={`w-full px-4 py-3 text-left font-medium flex items-center gap-3 hover:bg-main/20 transition-colors cursor-pointer ${
                     locale === loc ? 'bg-main/30' : ''
                   }`}
                   role="option"

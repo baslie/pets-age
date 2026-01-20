@@ -102,7 +102,7 @@ export default function FormulaInfoModal({ children }: FormulaInfoModalProps) {
                 className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
               >
                 <div
-                  className="bg-secondary-background border-2 border-border shadow-shadow rounded-base p-6 max-w-md w-full max-h-[90vh] overflow-y-auto pointer-events-auto"
+                  className="bg-secondary-background border-2 border-border shadow-shadow rounded-base p-6 w-full max-w-[calc(100vw-2rem)] sm:max-w-lg md:max-w-xl lg:max-w-2xl max-h-[90vh] overflow-y-auto pointer-events-auto"
                   role="dialog"
                   aria-modal="true"
                   aria-labelledby="formula-modal-title"
@@ -148,10 +148,13 @@ export default function FormulaInfoModal({ children }: FormulaInfoModalProps) {
                         href="https://doi.org/10.1016/j.cels.2020.06.006"
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        className="text-main hover:underline text-sm"
+                        className="text-main hover:underline text-sm cursor-pointer"
                       >
                         {t('sourceLink')}
                       </a>
+                      <p className="text-xs text-foreground/60 mt-1">
+                        {t('sourcePaperTitle')}
+                      </p>
                     </div>
                   </div>
 
@@ -159,7 +162,7 @@ export default function FormulaInfoModal({ children }: FormulaInfoModalProps) {
                   <Button
                     onClick={handleClose}
                     variant="default"
-                    className="w-full mt-6"
+                    className="mt-6 px-8 mx-auto block"
                   >
                     {t('close')}
                   </Button>

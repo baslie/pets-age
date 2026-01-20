@@ -63,7 +63,7 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
   };
 
   return (
-    <div className="mb-6">
+    <div className="mb-4">
       <div className="flex justify-between items-center mb-2">
         <label className="font-bold text-lg">{label}</label>
         {isEditing ? (
@@ -84,7 +84,7 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
         ) : (
           <motion.button
             onClick={handleValueClick}
-            className="font-bold text-2xl tabular-nums min-w-[3rem] text-center hover:bg-main/20 px-2 py-1 border-2 border-transparent hover:border-border rounded-base transition-colors"
+            className="font-bold text-2xl tabular-nums min-w-[3rem] text-center hover:bg-main/20 px-2 py-1 border-2 border-transparent hover:border-border rounded-base transition-colors cursor-pointer"
             title="Click to edit"
             whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
             whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}

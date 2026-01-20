@@ -8,7 +8,8 @@
  */
 export const calculateHumanAge = (dogAgeInYears: number): number => {
   if (dogAgeInYears <= 0) return 0;
-  return 16 * Math.log(dogAgeInYears) + 31;
+  const result = 16 * Math.log(dogAgeInYears) + 31;
+  return Math.max(0, result);
 };
 
 /**

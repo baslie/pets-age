@@ -54,7 +54,8 @@
     "example3": "5 years → 57 years",
     "example4": "12 years → 70 years",
     "sourcesTitle": "Source:",
-    "sourceLink": "Cell Systems (2020) — scientific paper",
+    "sourceLink": "Cell Systems (2020)",
+    "sourcePaperTitle": "Quantitative Translation of Dog-to-Human Aging by Conserved Remodeling of the DNA Methylome",
     "close": "Got it!"
   },
   "dog": {

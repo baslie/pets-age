@@ -64,16 +64,16 @@ export default function Calculator() {
       transition={{ type: 'spring', ...springConfig }}
     >
       {/* Result section */}
-      <div className="flex items-center justify-center gap-4 mb-6">
+      <div className="flex items-center justify-center gap-4 mb-4">
         <DogIllustration dogAgeInYears={dogAgeInYears} />
         <ResultDisplay humanAge={humanAge} />
       </div>
 
       {/* Tabs */}
-      <div className="flex mb-6 border-2 border-border rounded-base overflow-hidden">
+      <div className="flex mb-4 border-2 border-border rounded-base overflow-hidden">
         <button
           onClick={() => setInputMode('slider')}
-          className={`flex-1 py-3 px-4 font-bold text-sm transition-colors ${
+          className={`flex-1 py-3 px-4 font-bold text-sm transition-colors cursor-pointer ${
             inputMode === 'slider'
               ? 'bg-main text-main-foreground'
               : 'bg-secondary-background text-foreground hover:bg-main/20'
@@ -84,7 +84,7 @@ export default function Calculator() {
         </button>
         <button
           onClick={() => setInputMode('date')}
-          className={`flex-1 py-3 px-4 font-bold text-sm border-l-2 border-border transition-colors ${
+          className={`flex-1 py-3 px-4 font-bold text-sm border-l-2 border-border transition-colors cursor-pointer ${
             inputMode === 'date'
               ? 'bg-main text-main-foreground'
               : 'bg-secondary-background text-foreground hover:bg-main/20'

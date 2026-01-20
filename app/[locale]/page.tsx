@@ -8,13 +8,15 @@ export default function Home() {
   const t = useTranslations();
 
   return (
-    <main className="min-h-screen py-8 px-4">
+    <main className="min-h-screen pt-12 pb-8 px-4 relative">
+      {/* Переключатель языка в правом верхнем углу страницы */}
+      <div className="absolute top-4 right-4">
+        <LanguageSwitcher />
+      </div>
+
       <div className="max-w-3xl mx-auto">
-        <header className="text-center mb-8">
-          <div className="flex justify-end mb-4">
-            <LanguageSwitcher />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <header className="text-center mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
             {t("calculator.title")}
           </h1>
           <p className="text-lg text-foreground/80">
