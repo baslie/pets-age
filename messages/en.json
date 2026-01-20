@@ -5,7 +5,10 @@
   },
   "calculator": {
     "title": "How old is your dog?",
-    "subtitle": "Calculate your dog's real age in human years using science",
+    "subtitlePrefix": "Calculate your dog's real age using ",
+    "subtitleLink": "scientific formula",
+    "ageTab": "Enter pet's age",
+    "birthdateTab": "or their birthdate (if known)",
     "years": "Years",
     "months": "Months",
     "days": "Days",
@@ -21,8 +24,7 @@
     "title": "The Science",
     "description": "Traditional formula (7 human years = 1 dog year) is inaccurate. Our calculator uses epigenetic clock research from UC San Diego (2020) which analyzed DNA methylation patterns to determine biological aging.",
     "disclaimer": "Based on Labrador Retrievers research. Results may vary for different breeds.",
-    "basedOn": "Based on epigenetic clock research by UC San Diego (2020)",
-    "formula": "Formula: 16 × ln(dog age) + 31"
+    "basedOn": "Based on epigenetic clock research by UC San Diego (2020)"
   },
   "share": {
     "title": "Share result",
@@ -39,6 +41,21 @@
     "decline": "Decline",
     "learnMore": "Learn more in our",
     "privacyPolicy": "Privacy Policy"
+  },
+  "formulaModal": {
+    "ariaLabel": "Learn more about the formula",
+    "title": "Where does this formula come from?",
+    "intro": "Scientists from UC San Diego (2020) studied DNA from 104 Labrador Retrievers and discovered: dogs don't age linearly! They age rapidly early in life, then slow down.",
+    "mythBuster": "Forget the \"multiply by 7\" rule — it's a myth.",
+    "formulaExplanation": "H — human age, D — dog age, ln — natural logarithm",
+    "examplesTitle": "Examples:",
+    "example1": "1 year → 31 years",
+    "example2": "2 years → 42 years",
+    "example3": "5 years → 57 years",
+    "example4": "12 years → 70 years",
+    "sourcesTitle": "Source:",
+    "sourceLink": "Cell Systems (2020) — scientific paper",
+    "close": "Got it!"
   },
   "dog": {
     "stage1": "2 months",

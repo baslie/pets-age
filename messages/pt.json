@@ -5,7 +5,10 @@
   },
   "calculator": {
     "title": "Quantos anos tem o seu cão?",
-    "subtitle": "Calcule a idade real do seu cão em anos humanos",
+    "subtitlePrefix": "Calcule a idade real usando ",
+    "subtitleLink": "fórmula científica",
+    "ageTab": "Indique a idade do seu pet",
+    "birthdateTab": "ou sua data de nascimento (se souber)",
     "years": "Anos",
     "months": "Meses",
     "days": "Dias",
@@ -21,8 +24,7 @@
     "title": "A Ciência",
     "description": "A fórmula tradicional (7 anos humanos = 1 ano de cão) é imprecisa. Nossa calculadora usa pesquisa epigenética da UC San Diego (2020) que analisou padrões de metilação do DNA.",
     "disclaimer": "Baseado em pesquisa com Labrador Retrievers. Os resultados podem variar para outras raças.",
-    "basedOn": "Baseado em pesquisa epigenética da UC San Diego (2020)",
-    "formula": "Fórmula: 16 × ln(idade do cão) + 31"
+    "basedOn": "Baseado em pesquisa epigenética da UC San Diego (2020)"
   },
   "share": {
     "title": "Compartilhar resultado",
@@ -39,6 +41,21 @@
     "decline": "Recusar",
     "learnMore": "Saiba mais em nossa",
     "privacyPolicy": "Política de Privacidade"
+  },
+  "formulaModal": {
+    "ariaLabel": "Saiba mais sobre a fórmula",
+    "title": "De onde vem esta fórmula?",
+    "intro": "Cientistas da UC San Diego (2020) estudaram o DNA de 104 Labrador Retrievers e descobriram: cães não envelhecem linearmente! Eles envelhecem rapidamente no início, depois mais devagar.",
+    "mythBuster": "Esqueça a regra de \"multiplicar por 7\" — é um mito.",
+    "formulaExplanation": "H — idade humana, D — idade do cão, ln — logaritmo natural",
+    "examplesTitle": "Exemplos:",
+    "example1": "1 ano → 31 anos",
+    "example2": "2 anos → 42 anos",
+    "example3": "5 anos → 57 anos",
+    "example4": "12 anos → 70 anos",
+    "sourcesTitle": "Fonte:",
+    "sourceLink": "Cell Systems (2020) — artigo científico",
+    "close": "Entendi!"
   },
   "dog": {
     "stage1": "2 meses",

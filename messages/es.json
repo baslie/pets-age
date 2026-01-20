@@ -5,7 +5,10 @@
   },
   "calculator": {
     "title": "¿Cuántos años tiene tu perro?",
-    "subtitle": "Calcula la edad real de tu perro en años humanos",
+    "subtitlePrefix": "Calcula la edad real usando ",
+    "subtitleLink": "fórmula científica",
+    "ageTab": "Indica la edad de tu mascota",
+    "birthdateTab": "o su fecha de nacimiento (si la conoces)",
     "years": "Años",
     "months": "Meses",
     "days": "Días",
@@ -21,8 +24,7 @@
     "title": "La Ciencia",
     "description": "La fórmula tradicional (7 años humanos = 1 año de perro) es incorrecta. Nuestro calculador usa investigación epigenética de UC San Diego (2020) que analizó patrones de metilación del ADN.",
     "disclaimer": "Basado en investigación de Labrador Retrievers. Los resultados pueden variar para otras razas.",
-    "basedOn": "Basado en investigación epigenética de UC San Diego (2020)",
-    "formula": "Fórmula: 16 × ln(edad del perro) + 31"
+    "basedOn": "Basado en investigación epigenética de UC San Diego (2020)"
   },
   "share": {
     "title": "Compartir resultado",
@@ -39,6 +41,21 @@
     "decline": "Rechazar",
     "learnMore": "Más información en nuestra",
     "privacyPolicy": "Política de Privacidad"
+  },
+  "formulaModal": {
+    "ariaLabel": "Más información sobre la fórmula",
+    "title": "¿De dónde viene esta fórmula?",
+    "intro": "Científicos de UC San Diego (2020) estudiaron el ADN de 104 Labrador Retrievers y descubrieron: ¡los perros no envejecen linealmente! Envejecen rápido al principio, luego más lento.",
+    "mythBuster": "Olvida la regla de \"multiplicar por 7\" — es un mito.",
+    "formulaExplanation": "H — edad humana, D — edad del perro, ln — logaritmo natural",
+    "examplesTitle": "Ejemplos:",
+    "example1": "1 año → 31 años",
+    "example2": "2 años → 42 años",
+    "example3": "5 años → 57 años",
+    "example4": "12 años → 70 años",
+    "sourcesTitle": "Fuente:",
+    "sourceLink": "Cell Systems (2020) — artículo científico",
+    "close": "¡Entendido!"
   },
   "dog": {
     "stage1": "2 meses",

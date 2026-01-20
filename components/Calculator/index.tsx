@@ -9,7 +9,6 @@ import ResultDisplay from './ResultDisplay';
 import DogIllustration from './DogIllustration';
 import { calculateHumanAge, toDecimalYears } from '@/lib/calculateAge';
 import { trackCalculateAge } from '@/lib/analytics';
-import { Button } from '@/components/ui/button';
 
 type InputMode = 'slider' | 'date';
 
@@ -57,35 +56,46 @@ export default function Calculator() {
     setDays(Math.min(d, 30));
   }, []);
 
-  const toggleInputMode = () => {
-    setInputMode((prev) => (prev === 'slider' ? 'date' : 'slider'));
-  };
-
   return (
     <motion.div
-      className="rounded-base border-2 border-border shadow-shadow bg-secondary-background p-6 md:p-8 max-w-md mx-auto"
+      className="rounded-base border-2 border-border shadow-shadow bg-secondary-background p-6 md:p-8 max-w-lg mx-auto"
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
       animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
       transition={{ type: 'spring', ...springConfig }}
     >
-      <h2 className="text-2xl font-bold text-center mb-6">
-        {t('title')}
-      </h2>
-
+      {/* Result section */}
       <div className="flex items-center justify-center gap-4 mb-6">
         <DogIllustration dogAgeInYears={dogAgeInYears} />
         <ResultDisplay humanAge={humanAge} />
       </div>
 
-      <div className="flex justify-center mb-6">
-        <Button
-          onClick={toggleInputMode}
-          variant="default"
+      {/* Tabs */}
+      <div className="flex mb-6 border-2 border-border rounded-base overflow-hidden">
+        <button
+          onClick={() => setInputMode('slider')}
+          className={`flex-1 py-3 px-4 font-bold text-sm transition-colors ${
+            inputMode === 'slider'
+              ? 'bg-main text-main-foreground'
+              : 'bg-secondary-background text-foreground hover:bg-main/20'
+          }`}
+          type="button"
         >
-          {inputMode === 'slider' ? t('useBirthdate') : t('useSliders')}
-        </Button>
+          {t('ageTab')}
+        </button>
+        <button
+          onClick={() => setInputMode('date')}
+          className={`flex-1 py-3 px-4 font-bold text-sm border-l-2 border-border transition-colors ${
+            inputMode === 'date'
+              ? 'bg-main text-main-foreground'
+              : 'bg-secondary-background text-foreground hover:bg-main/20'
+          }`}
+          type="button"
+        >
+          {t('birthdateTab')}
+        </button>
       </div>
 
+      {/* Input section */}
       {inputMode === 'slider' ? (
         <motion.div
           key="sliders"
@@ -134,7 +144,6 @@ export default function Calculator() {
           </div>
         </motion.div>
       )}
-
     </motion.div>
   );
 }

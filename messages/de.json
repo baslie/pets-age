@@ -5,7 +5,10 @@
   },
   "calculator": {
     "title": "Wie alt ist dein Hund?",
-    "subtitle": "Berechne das wahre Alter deines Hundes wissenschaftlich",
+    "subtitlePrefix": "Berechne das wahre Alter mit ",
+    "subtitleLink": "wissenschaftlicher Formel",
+    "ageTab": "Geben Sie das Alter an",
+    "birthdateTab": "oder das Geburtsdatum (falls bekannt)",
     "years": "Jahre",
     "months": "Monate",
     "days": "Tage",
@@ -21,8 +24,7 @@
     "title": "Die Wissenschaft",
     "description": "Die traditionelle Formel (7 Menschenjahre = 1 Hundejahr) ist ungenau. Unser Rechner verwendet epigenetische Forschung der UC San Diego (2020), die DNA-Methylierungsmuster analysierte.",
     "disclaimer": "Basierend auf Labrador-Retriever-Forschung. Ergebnisse können bei anderen Rassen abweichen.",
-    "basedOn": "Basierend auf epigenetischer Forschung der UC San Diego (2020)",
-    "formula": "Formel: 16 × ln(Hundealter) + 31"
+    "basedOn": "Basierend auf epigenetischer Forschung der UC San Diego (2020)"
   },
   "share": {
     "title": "Ergebnis teilen",
@@ -39,6 +41,21 @@
     "decline": "Ablehnen",
     "learnMore": "Erfahren Sie mehr in unserer",
     "privacyPolicy": "Datenschutzerklärung"
+  },
+  "formulaModal": {
+    "ariaLabel": "Mehr über die Formel erfahren",
+    "title": "Woher kommt diese Formel?",
+    "intro": "Wissenschaftler der UC San Diego (2020) untersuchten die DNA von 104 Labrador Retrievern und entdeckten: Hunde altern nicht linear! Sie altern am Anfang schnell, dann langsamer.",
+    "mythBuster": "Vergiss die \"mal 7\"-Regel — das ist ein Mythos.",
+    "formulaExplanation": "H — Menschenalter, D — Hundealter, ln — natürlicher Logarithmus",
+    "examplesTitle": "Beispiele:",
+    "example1": "1 Jahr → 31 Jahre",
+    "example2": "2 Jahre → 42 Jahre",
+    "example3": "5 Jahre → 57 Jahre",
+    "example4": "12 Jahre → 70 Jahre",
+    "sourcesTitle": "Quelle:",
+    "sourceLink": "Cell Systems (2020) — wissenschaftlicher Artikel",
+    "close": "Verstanden!"
   },
   "dog": {
     "stage1": "2 Monate",
