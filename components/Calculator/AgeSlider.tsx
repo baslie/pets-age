@@ -10,6 +10,7 @@ interface AgeSliderProps {
   min: number;
   max: number;
   onChange: (value: number) => void;
+  className?: string;
 }
 
 const springConfig = {
@@ -17,13 +18,13 @@ const springConfig = {
   damping: 20,
 };
 
-export default function AgeSlider({ label, value, min, max, onChange }: AgeSliderProps) {
+export default function AgeSlider({ label, value, min, max, onChange, className }: AgeSliderProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState('');
   const prefersReducedMotion = useReducedMotion();
 
   const springValue = useSpring(value, prefersReducedMotion ? { duration: 0 } : springConfig);
-  const displayValue = useTransform(springValue, (v) => Math.round(v));
+  const displayValue = useTransform(springValue, (v) => Math.max(min, Math.min(max, Math.round(v))));
 
   useEffect(() => {
     springValue.set(value);
@@ -63,7 +64,7 @@ export default function AgeSlider({ label, value, min, max, onChange }: AgeSlide
   };
 
   return (
-    <div className="mb-4">
+    <div className={`mb-4 ${className || ''}`}>
       <div className="flex justify-between items-center mb-2">
         <label className="font-bold text-lg">{label}</label>
         {isEditing ? (

@@ -30,7 +30,7 @@ export default function DogIllustration({ dogAgeInYears }: DogIllustrationProps)
   const stage = useMemo(() => getDogStage(dogAgeInYears), [dogAgeInYears]);
 
   return (
-    <div className="relative w-48 h-48 mx-auto mb-4">
+    <div className="relative w-48 h-48 lg:w-40 lg:h-40 mx-auto mb-4 lg:mb-0 lg:mx-0">
       <AnimatePresence>
         <motion.div
           key={stage}
@@ -46,7 +46,7 @@ export default function DogIllustration({ dogAgeInYears }: DogIllustrationProps)
             fill
             className="object-contain"
             priority={stage <= 3}
-            sizes="192px"
+            sizes="(min-width: 1024px) 128px, 192px"
           />
         </motion.div>
       </AnimatePresence>

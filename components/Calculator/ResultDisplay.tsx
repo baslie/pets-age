@@ -18,17 +18,17 @@ export default function ResultDisplay({ humanAge }: ResultDisplayProps) {
   };
 
   const springValue = useSpring(0, prefersReducedMotion ? { duration: 0 } : springConfig);
-  const displayValue = useTransform(springValue, (value) => Math.round(value));
+  const displayValue = useTransform(springValue, (value) => Math.max(0, Math.round(value)));
 
   useEffect(() => {
     springValue.set(humanAge);
   }, [humanAge, springValue]);
 
   return (
-    <div className="text-center py-8">
+    <div className="text-center py-8 lg:py-4">
       <p className="text-lg font-medium text-foreground/60 mb-2">{t('result')}</p>
       <motion.div
-        className="text-7xl font-bold tabular-nums text-main"
+        className="text-7xl font-bold tabular-nums text-main font-serif"
         initial={prefersReducedMotion ? {} : { scale: 0.8, opacity: 0 }}
         animate={prefersReducedMotion ? {} : { scale: 1, opacity: 1 }}
         transition={{ type: 'spring', ...springConfig }}

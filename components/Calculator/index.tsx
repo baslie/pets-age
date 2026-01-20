@@ -58,19 +58,19 @@ export default function Calculator() {
 
   return (
     <motion.div
-      className="rounded-base border-2 border-border shadow-shadow bg-secondary-background p-6 md:p-8 max-w-lg mx-auto"
+      className="rounded-base border-2 border-border shadow-shadow bg-secondary-background p-6 md:p-8 max-w-lg mx-auto lg:mx-0 lg:max-w-none"
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
       animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
       transition={{ type: 'spring', ...springConfig }}
     >
-      {/* Result section */}
-      <div className="flex items-center justify-center gap-4 mb-4">
+      {/* Result section - горизонтальный на десктопе */}
+      <div className="flex items-center justify-center gap-4 mb-4 lg:mb-6 lg:gap-8">
         <DogIllustration dogAgeInYears={dogAgeInYears} />
         <ResultDisplay humanAge={humanAge} />
       </div>
 
       {/* Tabs */}
-      <div className="flex mb-4 border-2 border-border rounded-base overflow-hidden">
+      <div className="flex mb-4 border-2 border-border rounded-base overflow-hidden lg:mb-6">
         <button
           onClick={() => setInputMode('slider')}
           className={`flex-1 py-3 px-4 font-bold text-sm transition-colors cursor-pointer ${
@@ -103,6 +103,7 @@ export default function Calculator() {
           animate={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
           exit={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
           transition={{ type: 'spring', ...springConfig }}
+          className="lg:flex lg:gap-6 xl:gap-8"
         >
           <AgeSlider
             label={t('years')}
@@ -110,6 +111,7 @@ export default function Calculator() {
             min={0}
             max={25}
             onChange={setYears}
+            className="lg:flex-1"
           />
 
           <AgeSlider
@@ -118,6 +120,7 @@ export default function Calculator() {
             min={0}
             max={11}
             onChange={setMonths}
+            className="lg:flex-1"
           />
 
           <AgeSlider
@@ -126,6 +129,7 @@ export default function Calculator() {
             min={0}
             max={30}
             onChange={setDays}
+            className="lg:flex-1 lg:mb-0"
           />
         </motion.div>
       ) : (
@@ -135,6 +139,7 @@ export default function Calculator() {
           animate={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
           exit={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
           transition={{ type: 'spring', ...springConfig }}
+          className="lg:max-w-md lg:mx-auto"
         >
           <DatePicker onAgeChange={handleDateAgeChange} />
           <div className="text-center text-foreground/60 text-sm">
