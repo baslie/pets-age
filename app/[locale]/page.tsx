@@ -2,7 +2,8 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import Calculator from "@/components/Calculator";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import FormulaInfoModal from "@/components/FormulaInfoModal";
+import ScrollLink from "@/components/ScrollLink";
+import FormulaSection from "@/components/FormulaSection";
 import Copyright from "@/components/Copyright";
 
 export default function Home() {
@@ -26,11 +27,12 @@ export default function Home() {
             </h1>
             <p className="text-lg lg:text-xl text-foreground/80">
               {t("calculator.subtitlePrefix")}
-              <FormulaInfoModal>
-                <span className="underline decoration-2 decoration-main underline-offset-2 hover:decoration-main/70 transition-colors cursor-help">
-                  {t("calculator.subtitleLink")}<sup className="text-xs">¹</sup>
-                </span>
-              </FormulaInfoModal>
+              <ScrollLink
+                targetId="formula-section"
+                className="underline decoration-2 decoration-main underline-offset-2 hover:decoration-main/70 transition-colors cursor-pointer"
+              >
+                {t("calculator.subtitleLink")}
+              </ScrollLink>
             </p>
           </header>
 
@@ -41,11 +43,13 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Блок с информацией о формуле */}
+      <FormulaSection />
+
       {/* Footer — прижат к низу */}
       <footer className="px-4 lg:px-8 xl:px-12 pb-6">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-2">
           <div className="text-sm text-foreground/60 text-center lg:text-left">
-            <p className="text-xs text-foreground/40"><sup>1</sup> {t("info.basedOn")}</p>
             <Copyright />
           </div>
           <Link
