@@ -18,7 +18,7 @@ export default function FormulaSection() {
       id="formula-section"
       className="px-4 lg:px-8 xl:px-12 py-8 lg:py-12"
     >
-      <div className="max-w-2xl mx-auto bg-secondary-background border-2 border-border shadow-shadow rounded-base p-6 lg:p-8">
+      <div className="w-full bg-secondary-background border-2 border-border shadow-shadow rounded-base p-6 lg:p-8">
         {/* Header */}
         <h2 className="font-bold text-2xl lg:text-3xl mb-6 font-serif">
           {t('title')}
@@ -45,16 +45,16 @@ export default function FormulaSection() {
           <div>
             <p className="font-bold mb-3">{t('examplesTitle')}</p>
             <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-foreground/80">
-              <li className="bg-background border border-border rounded-base px-3 py-2 text-center">
+              <li className="bg-background border-2 border-border rounded-base px-3 py-2 text-center">
                 {t('example1')}
               </li>
-              <li className="bg-background border border-border rounded-base px-3 py-2 text-center">
+              <li className="bg-background border-2 border-border rounded-base px-3 py-2 text-center">
                 {t('example2')}
               </li>
-              <li className="bg-background border border-border rounded-base px-3 py-2 text-center">
+              <li className="bg-background border-2 border-border rounded-base px-3 py-2 text-center">
                 {t('example3')}
               </li>
-              <li className="bg-background border border-border rounded-base px-3 py-2 text-center">
+              <li className="bg-background border-2 border-border rounded-base px-3 py-2 text-center">
                 {t('example4')}
               </li>
             </ul>
