@@ -71,5 +71,68 @@
     "stage10": "14 anni",
     "stage11": "16 anni",
     "stage12": "18+ anni"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Informativa sulla Privacy — TrueDogAge",
+      "description": "Scopri come TrueDogAge raccoglie, utilizza e protegge i tuoi dati"
+    },
+    "title": "Informativa sulla Privacy",
+    "backToHome": "Torna al calcolatore",
+    "lastUpdated": "Ultimo aggiornamento",
+    "updateDate": "Gennaio 2025",
+    "intro": "In TrueDogAge, rispettiamo la tua privacy e ci impegniamo a proteggere i tuoi dati personali. Questa informativa sulla privacy spiega come raccogliamo, utilizziamo e proteggiamo le tue informazioni quando utilizzi il nostro calcolatore dell'età del cane.",
+    "dataCollection": {
+      "title": "Dati che raccogliamo",
+      "description": "Raccogliamo i dati minimi necessari per fornire e migliorare il nostro servizio:",
+      "item1": "Dati di utilizzo (pagine visitate, tempo trascorso, tipo di dispositivo)",
+      "item2": "Le tue preferenze sui cookie",
+      "item3": "Dati analitici anonimi per migliorare il nostro servizio"
+    },
+    "cookies": {
+      "title": "Cookie",
+      "description": "Utilizziamo i cookie per migliorare la tua esperienza e analizzare l'utilizzo del sito.",
+      "essential": {
+        "title": "Cookie essenziali",
+        "description": "Necessari per le funzionalità di base del sito, come ricordare le tue preferenze sui cookie. Non possono essere disattivati."
+      },
+      "analytics": {
+        "title": "Cookie analitici",
+        "description": "Ci aiutano a capire come i visitatori utilizzano il nostro sito. Puoi accettarli o rifiutarli nel nostro banner dei cookie."
+      }
+    },
+    "analytics": {
+      "title": "Servizi di analisi",
+      "description": "Utilizziamo i seguenti servizi di analisi per capire come viene utilizzato il nostro sito:",
+      "ga4": {
+        "description": "Utilizziamo Google Analytics 4 per raccogliere dati di utilizzo anonimi. Google può utilizzare questi dati in conformità con la propria informativa sulla privacy.",
+        "link": "Informativa sulla privacy di Google"
+      },
+      "yandex": {
+        "title": "Yandex Metrica",
+        "description": "Utilizziamo Yandex Metrica per l'analisi in alcune regioni. Yandex elabora i dati secondo la propria informativa sulla privacy.",
+        "link": "Informativa sulla privacy di Yandex"
+      }
+    },
+    "rights": {
+      "title": "I tuoi diritti",
+      "description": "Ai sensi delle leggi sulla protezione dei dati applicabili, hai i seguenti diritti:",
+      "item1": "Diritto di accesso ai tuoi dati personali",
+      "item2": "Diritto di richiedere la cancellazione dei tuoi dati",
+      "item3": "Diritto di rifiutare il tracciamento analitico",
+      "item4": "Diritto di revocare il consenso in qualsiasi momento"
+    },
+    "security": {
+      "title": "Sicurezza dei dati",
+      "description": "Implementiamo misure tecniche e organizzative appropriate per proteggere i tuoi dati. Il nostro sito utilizza la crittografia HTTPS e non memorizziamo informazioni personali sui nostri server."
+    },
+    "contact": {
+      "title": "Contattaci",
+      "description": "Se hai domande su questa informativa sulla privacy o sui tuoi dati, contattaci all'indirizzo"
+    },
+    "changes": {
+      "title": "Modifiche a questa informativa",
+      "description": "Potremmo aggiornare questa informativa sulla privacy di tanto in tanto. Eventuali modifiche saranno pubblicate su questa pagina con una data di revisione aggiornata."
+    }
   }
 }

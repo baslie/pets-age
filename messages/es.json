@@ -71,5 +71,68 @@
     "stage10": "14 años",
     "stage11": "16 años",
     "stage12": "18+ años"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Política de Privacidad — TrueDogAge",
+      "description": "Conozca cómo TrueDogAge recopila, usa y protege sus datos"
+    },
+    "title": "Política de Privacidad",
+    "backToHome": "Volver a la calculadora",
+    "lastUpdated": "Última actualización",
+    "updateDate": "Enero 2025",
+    "intro": "En TrueDogAge, respetamos su privacidad y nos comprometemos a proteger sus datos personales. Esta política de privacidad explica cómo recopilamos, usamos y protegemos su información cuando utiliza nuestra calculadora de edad de perros.",
+    "dataCollection": {
+      "title": "Datos que recopilamos",
+      "description": "Recopilamos los datos mínimos necesarios para proporcionar y mejorar nuestro servicio:",
+      "item1": "Datos de uso (páginas visitadas, tiempo en el sitio, tipo de dispositivo)",
+      "item2": "Sus preferencias de cookies",
+      "item3": "Datos analíticos anónimos para mejorar nuestro servicio"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Utilizamos cookies para mejorar su experiencia y analizar el uso del sitio.",
+      "essential": {
+        "title": "Cookies esenciales",
+        "description": "Necesarias para la funcionalidad básica del sitio, como recordar sus preferencias de cookies. No se pueden desactivar."
+      },
+      "analytics": {
+        "title": "Cookies de análisis",
+        "description": "Nos ayudan a entender cómo los visitantes usan nuestro sitio. Puede aceptarlas o rechazarlas en nuestro banner de cookies."
+      }
+    },
+    "analytics": {
+      "title": "Servicios de análisis",
+      "description": "Utilizamos los siguientes servicios de análisis para entender cómo se usa nuestro sitio:",
+      "ga4": {
+        "description": "Usamos Google Analytics 4 para recopilar datos de uso anónimos. Google puede usar estos datos de acuerdo con su política de privacidad.",
+        "link": "Política de privacidad de Google"
+      },
+      "yandex": {
+        "title": "Yandex Metrica",
+        "description": "Usamos Yandex Metrica para análisis en ciertas regiones. Yandex procesa los datos según su política de privacidad.",
+        "link": "Política de privacidad de Yandex"
+      }
+    },
+    "rights": {
+      "title": "Sus derechos",
+      "description": "Según las leyes de protección de datos aplicables, usted tiene los siguientes derechos:",
+      "item1": "Derecho a acceder a sus datos personales",
+      "item2": "Derecho a solicitar la eliminación de sus datos",
+      "item3": "Derecho a rechazar el seguimiento analítico",
+      "item4": "Derecho a retirar su consentimiento en cualquier momento"
+    },
+    "security": {
+      "title": "Seguridad de datos",
+      "description": "Implementamos medidas técnicas y organizativas apropiadas para proteger sus datos. Nuestro sitio usa cifrado HTTPS y no almacenamos información personal en nuestros servidores."
+    },
+    "contact": {
+      "title": "Contáctenos",
+      "description": "Si tiene preguntas sobre esta política de privacidad o sus datos, contáctenos en"
+    },
+    "changes": {
+      "title": "Cambios en esta política",
+      "description": "Podemos actualizar esta política de privacidad ocasionalmente. Cualquier cambio se publicará en esta página con una fecha de revisión actualizada."
+    }
   }
 }

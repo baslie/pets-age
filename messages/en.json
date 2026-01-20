@@ -71,5 +71,68 @@
     "stage10": "14 years",
     "stage11": "16 years",
     "stage12": "18+ years"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy — TrueDogAge",
+      "description": "Learn how TrueDogAge collects, uses, and protects your data"
+    },
+    "title": "Privacy Policy",
+    "backToHome": "Back to Calculator",
+    "lastUpdated": "Last updated",
+    "updateDate": "January 2025",
+    "intro": "At TrueDogAge, we respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our dog age calculator.",
+    "dataCollection": {
+      "title": "Data We Collect",
+      "description": "We collect minimal data necessary to provide and improve our service:",
+      "item1": "Usage data (pages visited, time spent, device type)",
+      "item2": "Cookie preferences you set",
+      "item3": "Anonymous analytics data to improve our service"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "We use cookies to enhance your experience and analyze site usage.",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "Required for basic site functionality, such as remembering your cookie preferences. These cannot be disabled."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Help us understand how visitors use our site. You can accept or decline these in our cookie banner."
+      }
+    },
+    "analytics": {
+      "title": "Analytics Services",
+      "description": "We use the following analytics services to understand how our site is used:",
+      "ga4": {
+        "description": "We use Google Analytics 4 to collect anonymous usage data. Google may use this data in accordance with their privacy policy.",
+        "link": "Google Privacy Policy"
+      },
+      "yandex": {
+        "title": "Yandex Metrica",
+        "description": "We use Yandex Metrica for analytics in certain regions. Yandex processes data according to their privacy policy.",
+        "link": "Yandex Privacy Policy"
+      }
+    },
+    "rights": {
+      "title": "Your Rights",
+      "description": "Under applicable data protection laws, you have the following rights:",
+      "item1": "Right to access your personal data",
+      "item2": "Right to request deletion of your data",
+      "item3": "Right to opt out of analytics tracking",
+      "item4": "Right to withdraw consent at any time"
+    },
+    "security": {
+      "title": "Data Security",
+      "description": "We implement appropriate technical and organizational measures to protect your data. Our site uses HTTPS encryption and we don't store any personal information on our servers."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "If you have any questions about this privacy policy or your data, please contact us at"
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "description": "We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date."
+    }
   }
 }

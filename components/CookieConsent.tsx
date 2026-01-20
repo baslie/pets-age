@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { trackCookieConsent } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 
 export default function CookieConsent() {
   const t = useTranslations('cookie');
+  const locale = useLocale();
   const prefersReducedMotion = useReducedMotion();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -66,7 +67,7 @@ export default function CookieConsent() {
             </div>
             <p className="text-xs text-foreground/50 mt-3">
               {t('learnMore')}{' '}
-              <Link href="/privacy" className="underline hover:text-main">
+              <Link href={`/${locale}/privacy`} className="underline hover:text-main">
                 {t('privacyPolicy')}
               </Link>
             </p>

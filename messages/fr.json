@@ -71,5 +71,68 @@
     "stage10": "14 ans",
     "stage11": "16 ans",
     "stage12": "18+ ans"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Politique de confidentialité — TrueDogAge",
+      "description": "Découvrez comment TrueDogAge collecte, utilise et protège vos données"
+    },
+    "title": "Politique de confidentialité",
+    "backToHome": "Retour au calculateur",
+    "lastUpdated": "Dernière mise à jour",
+    "updateDate": "Janvier 2025",
+    "intro": "Chez TrueDogAge, nous respectons votre vie privée et nous nous engageons à protéger vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre calculateur d'âge de chien.",
+    "dataCollection": {
+      "title": "Données que nous collectons",
+      "description": "Nous collectons les données minimales nécessaires pour fournir et améliorer notre service :",
+      "item1": "Données d'utilisation (pages visitées, temps passé, type d'appareil)",
+      "item2": "Vos préférences de cookies",
+      "item3": "Données analytiques anonymes pour améliorer notre service"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Nous utilisons des cookies pour améliorer votre expérience et analyser l'utilisation du site.",
+      "essential": {
+        "title": "Cookies essentiels",
+        "description": "Nécessaires au fonctionnement de base du site, comme la mémorisation de vos préférences de cookies. Ils ne peuvent pas être désactivés."
+      },
+      "analytics": {
+        "title": "Cookies analytiques",
+        "description": "Nous aident à comprendre comment les visiteurs utilisent notre site. Vous pouvez les accepter ou les refuser dans notre bannière de cookies."
+      }
+    },
+    "analytics": {
+      "title": "Services d'analyse",
+      "description": "Nous utilisons les services d'analyse suivants pour comprendre comment notre site est utilisé :",
+      "ga4": {
+        "description": "Nous utilisons Google Analytics 4 pour collecter des données d'utilisation anonymes. Google peut utiliser ces données conformément à sa politique de confidentialité.",
+        "link": "Politique de confidentialité de Google"
+      },
+      "yandex": {
+        "title": "Yandex Metrica",
+        "description": "Nous utilisons Yandex Metrica pour l'analyse dans certaines régions. Yandex traite les données selon sa politique de confidentialité.",
+        "link": "Politique de confidentialité de Yandex"
+      }
+    },
+    "rights": {
+      "title": "Vos droits",
+      "description": "En vertu des lois applicables sur la protection des données, vous disposez des droits suivants :",
+      "item1": "Droit d'accès à vos données personnelles",
+      "item2": "Droit de demander la suppression de vos données",
+      "item3": "Droit de refuser le suivi analytique",
+      "item4": "Droit de retirer votre consentement à tout moment"
+    },
+    "security": {
+      "title": "Sécurité des données",
+      "description": "Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données. Notre site utilise le chiffrement HTTPS et nous ne stockons aucune information personnelle sur nos serveurs."
+    },
+    "contact": {
+      "title": "Nous contacter",
+      "description": "Si vous avez des questions concernant cette politique de confidentialité ou vos données, veuillez nous contacter à"
+    },
+    "changes": {
+      "title": "Modifications de cette politique",
+      "description": "Nous pouvons mettre à jour cette politique de confidentialité de temps en temps. Tout changement sera publié sur cette page avec une date de révision mise à jour."
+    }
   }
 }

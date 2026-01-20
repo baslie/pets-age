@@ -71,5 +71,68 @@
     "stage10": "14 Jahre",
     "stage11": "16 Jahre",
     "stage12": "18+ Jahre"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Datenschutzerklärung — TrueDogAge",
+      "description": "Erfahren Sie, wie TrueDogAge Ihre Daten erfasst, verwendet und schützt"
+    },
+    "title": "Datenschutzerklärung",
+    "backToHome": "Zurück zum Rechner",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "updateDate": "Januar 2025",
+    "intro": "Bei TrueDogAge respektieren wir Ihre Privatsphäre und sind bestrebt, Ihre persönlichen Daten zu schützen. Diese Datenschutzerklärung erklärt, wie wir Ihre Informationen bei der Nutzung unseres Hundealter-Rechners sammeln, verwenden und schützen.",
+    "dataCollection": {
+      "title": "Daten, die wir erheben",
+      "description": "Wir erheben nur die minimal notwendigen Daten zur Bereitstellung und Verbesserung unseres Dienstes:",
+      "item1": "Nutzungsdaten (besuchte Seiten, Verweildauer, Gerätetyp)",
+      "item2": "Ihre Cookie-Einstellungen",
+      "item3": "Anonyme Analysedaten zur Verbesserung unseres Dienstes"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und die Nutzung der Website zu analysieren.",
+      "essential": {
+        "title": "Notwendige Cookies",
+        "description": "Erforderlich für grundlegende Website-Funktionen, wie das Speichern Ihrer Cookie-Einstellungen. Diese können nicht deaktiviert werden."
+      },
+      "analytics": {
+        "title": "Analyse-Cookies",
+        "description": "Helfen uns zu verstehen, wie Besucher unsere Website nutzen. Sie können diese in unserem Cookie-Banner akzeptieren oder ablehnen."
+      }
+    },
+    "analytics": {
+      "title": "Analysedienste",
+      "description": "Wir nutzen folgende Analysedienste, um die Nutzung unserer Website zu verstehen:",
+      "ga4": {
+        "description": "Wir nutzen Google Analytics 4 zur Erfassung anonymer Nutzungsdaten. Google kann diese Daten gemäß ihrer Datenschutzrichtlinie verwenden.",
+        "link": "Google Datenschutzerklärung"
+      },
+      "yandex": {
+        "title": "Yandex Metrica",
+        "description": "Wir nutzen Yandex Metrica für Analysen in bestimmten Regionen. Yandex verarbeitet Daten gemäß ihrer Datenschutzrichtlinie.",
+        "link": "Yandex Datenschutzerklärung"
+      }
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "description": "Nach geltendem Datenschutzrecht haben Sie folgende Rechte:",
+      "item1": "Recht auf Zugang zu Ihren persönlichen Daten",
+      "item2": "Recht auf Löschung Ihrer Daten",
+      "item3": "Recht auf Widerspruch gegen Analyse-Tracking",
+      "item4": "Recht auf Widerruf der Einwilligung jederzeit"
+    },
+    "security": {
+      "title": "Datensicherheit",
+      "description": "Wir implementieren angemessene technische und organisatorische Maßnahmen zum Schutz Ihrer Daten. Unsere Website verwendet HTTPS-Verschlüsselung und wir speichern keine persönlichen Informationen auf unseren Servern."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Bei Fragen zu dieser Datenschutzerklärung oder Ihren Daten kontaktieren Sie uns bitte unter"
+    },
+    "changes": {
+      "title": "Änderungen dieser Richtlinie",
+      "description": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Alle Änderungen werden auf dieser Seite mit aktualisiertem Datum veröffentlicht."
+    }
   }
 }
