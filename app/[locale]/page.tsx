@@ -1,4 +1,5 @@
-import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 import Calculator from "@/components/Calculator";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import FormulaInfoModal from "@/components/FormulaInfoModal";
@@ -6,6 +7,7 @@ import Copyright from "@/components/Copyright";
 
 export default function Home() {
   const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <main className="min-h-screen flex flex-col relative">
@@ -15,7 +17,7 @@ export default function Home() {
       </div>
 
       {/* Основной контент — центрирован по вертикали */}
-      <div className="flex-1 flex items-center px-4 lg:px-8 xl:px-12 py-12">
+      <div className="flex-1 flex items-center px-4 lg:px-8 xl:px-12 pt-16 pb-12 lg:py-12">
         <div className="w-full lg:flex lg:items-center lg:justify-between lg:gap-12 xl:gap-16">
           {/* Левая часть: заголовок с ограниченной шириной */}
           <header className="text-center lg:text-left lg:max-w-xl lg:flex-shrink-0 mb-8 lg:mb-0">
@@ -40,10 +42,18 @@ export default function Home() {
       </div>
 
       {/* Footer — прижат к низу */}
-      <footer className="px-4 lg:px-8 xl:px-12 pb-6 text-center lg:text-left">
-        <div className="text-sm text-foreground/60">
-          <p className="text-xs text-foreground/40"><sup>1</sup> {t("info.basedOn")}</p>
-          <Copyright />
+      <footer className="px-4 lg:px-8 xl:px-12 pb-6">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-2">
+          <div className="text-sm text-foreground/60 text-center lg:text-left">
+            <p className="text-xs text-foreground/40"><sup>1</sup> {t("info.basedOn")}</p>
+            <Copyright />
+          </div>
+          <Link
+            href={`/${locale}/privacy`}
+            className="text-xs text-foreground/40 hover:text-main transition-colors text-center lg:text-right"
+          >
+            {t("cookie.privacyPolicy")}
+          </Link>
         </div>
       </footer>
     </main>
