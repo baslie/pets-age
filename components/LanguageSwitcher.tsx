@@ -21,7 +21,7 @@ const flagComponents: Record<Locale, React.ComponentType<{ className?: string }>
 
 function FlagIcon({ locale }: { locale: Locale }) {
   const FlagComponent = flagComponents[locale];
-  return <FlagComponent className="w-6 h-4 rounded-sm border border-border/30" />;
+  return <FlagComponent className="w-6 h-4 rounded-sm" />;
 }
 
 export default function LanguageSwitcher() {
