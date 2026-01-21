@@ -5,6 +5,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ScrollLink from "@/components/ScrollLink";
 import FormulaSection from "@/components/FormulaSection";
 import Copyright from "@/components/Copyright";
+import { ScaledHeading } from "@/components/ScaledHeading";
 
 export default function Home() {
   const t = useTranslations();
@@ -19,12 +20,15 @@ export default function Home() {
 
       {/* Основной контент — центрирован по вертикали */}
       <div className="flex-1 flex items-center px-4 lg:px-8 xl:px-12 pt-16 pb-12 lg:pt-20 lg:pb-12">
-        <div className="w-full lg:flex lg:items-center lg:justify-between lg:gap-12 xl:gap-16">
+        <div className="w-full lg:flex lg:items-center lg:justify-between lg:gap-[clamp(2rem,4vw,4rem)]">
           {/* Левая часть: заголовок с ограниченной шириной */}
           <header className="text-center lg:text-left lg:max-w-xl lg:flex-shrink-0 mb-8 lg:mb-0">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-[clamp(4.5rem,5vw,7rem)] font-bold mb-4 font-serif">
+            <ScaledHeading
+              className="text-5xl font-bold mb-4 font-serif"
+              baseWidth={400}
+            >
               {t("calculator.title")}
-            </h1>
+            </ScaledHeading>
             <p className="text-lg lg:text-xl text-foreground/80">
               {t("calculator.subtitlePrefix")}
               <ScrollLink
