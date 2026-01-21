@@ -22,7 +22,7 @@ export default function Home() {
         <div className="w-full lg:flex lg:items-center lg:justify-between lg:gap-12 xl:gap-16">
           {/* Левая часть: заголовок с ограниченной шириной */}
           <header className="text-center lg:text-left lg:max-w-xl lg:flex-shrink-0 mb-8 lg:mb-0">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 font-serif">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-[clamp(4.5rem,5vw,7rem)] font-bold mb-4 font-serif">
               {t("calculator.title")}
             </h1>
             <p className="text-lg lg:text-xl text-foreground/80">
