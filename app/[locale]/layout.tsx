@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
+import { YandexMetricaProvider } from "next-yandex-metrica";
 import { locales } from "@/i18n/config";
 import Analytics from "@/components/Analytics";
 import CookieConsent from "@/components/CookieConsent";
@@ -183,13 +184,26 @@ export default async function LocaleLayout({ children, params }: Props) {
         <JsonLd locale={locale} />
       </head>
       <body className="antialiased font-sans" suppressHydrationWarning>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-          <CookieConsent />
-        </NextIntlClientProvider>
-        <Suspense fallback={null}>
-          <Analytics />
-        </Suspense>
+        <YandexMetricaProvider
+          tagID={Number(process.env.NEXT_PUBLIC_YM_COUNTER_ID) || undefined}
+          initParameters={{
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true,
+            defer: true,
+            trackHash: true,
+          }}
+          router="app"
+        >
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <CookieConsent />
+          </NextIntlClientProvider>
+          <Suspense fallback={null}>
+            <Analytics />
+          </Suspense>
+        </YandexMetricaProvider>
       </body>
     </html>
   );
