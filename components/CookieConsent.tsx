@@ -65,9 +65,12 @@ export default function CookieConsent() {
                 {t('decline')}
               </Button>
             </div>
-            <p className="text-xs text-foreground/50 mt-3">
+            <p className="text-sm text-foreground/70 mt-3">
               {t('learnMore')}{' '}
-              <Link href={`/${locale}/privacy`} className="underline hover:text-main">
+              <Link
+                href={`/${locale}/privacy`}
+                className="underline text-main hover:text-main/80 py-1 inline-block"
+              >
                 {t('privacyPolicy')}
               </Link>
             </p>

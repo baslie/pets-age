@@ -54,7 +54,7 @@ export default function Home() {
           </div>
           <Link
             href={`/${locale}/privacy`}
-            className="text-sm text-foreground/60 hover:text-main transition-colors text-center lg:text-right"
+            className="text-sm text-foreground/60 underline hover:text-main transition-colors text-center lg:text-right py-2 inline-block"
           >
             {t("cookie.privacyPolicy")}
           </Link>
