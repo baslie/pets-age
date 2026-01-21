@@ -196,10 +196,10 @@ export default async function PrivacyPage({ params }: Props) {
             <p className="text-foreground/80">
               {t("contact.description")}{" "}
               <a
-                href="mailto:privacy@truedogage.com"
+                href="mailto:rytrycon@gmail.com"
                 className="text-main hover:underline"
               >
-                privacy@truedogage.com
+                rytrycon@gmail.com
               </a>
             </p>
           </section>
