@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { YandexMetricaProvider } from "next-yandex-metrica";
 import { locales } from "@/i18n/config";
+import { YM_COUNTER_ID } from "@/lib/analytics";
 import Analytics from "@/components/Analytics";
 import CookieConsent from "@/components/CookieConsent";
 
@@ -185,7 +186,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="antialiased font-sans" suppressHydrationWarning>
         <YandexMetricaProvider
-          tagID={Number(process.env.NEXT_PUBLIC_YM_COUNTER_ID) || undefined}
+          tagID={YM_COUNTER_ID}
           initParameters={{
             clickmap: true,
             trackLinks: true,
