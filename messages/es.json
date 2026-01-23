@@ -18,7 +18,8 @@
     "yearsOld": "{count, plural, one {# año} other {# años}}",
     "monthsOld": "{count, plural, one {# mes} other {# meses}}",
     "daysOld": "{count, plural, one {# día} other {# días}}",
-    "ageDisplay": "{years} años, {months} meses, {days} días"
+    "ageDisplay": "{years} años, {months} meses, {days} días",
+    "youngPuppyNote": "Aproximado (fórmula válida desde 8 semanas)"
   },
   "info": {
     "title": "La Ciencia",

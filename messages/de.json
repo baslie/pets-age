@@ -18,7 +18,8 @@
     "yearsOld": "{count, plural, one {# Jahr} other {# Jahre}}",
     "monthsOld": "{count, plural, one {# Monat} other {# Monate}}",
     "daysOld": "{count, plural, one {# Tag} other {# Tage}}",
-    "ageDisplay": "{years} Jahre, {months} Monate, {days} Tage"
+    "ageDisplay": "{years} Jahre, {months} Monate, {days} Tage",
+    "youngPuppyNote": "Ungefähr (Formel gültig ab 8 Wochen)"
   },
   "info": {
     "title": "Die Wissenschaft",

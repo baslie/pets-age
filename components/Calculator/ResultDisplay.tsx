@@ -6,11 +6,16 @@ import { useTranslations } from 'next-intl';
 
 interface ResultDisplayProps {
   humanAge: number;
+  dogAgeInYears: number;
 }
 
-export default function ResultDisplay({ humanAge }: ResultDisplayProps) {
+// Threshold: 8 weeks in years
+const YOUNG_PUPPY_THRESHOLD = 8 / 52;
+
+export default function ResultDisplay({ humanAge, dogAgeInYears }: ResultDisplayProps) {
   const t = useTranslations('calculator');
   const prefersReducedMotion = useReducedMotion();
+  const isVeryYoungPuppy = dogAgeInYears > 0 && dogAgeInYears < YOUNG_PUPPY_THRESHOLD;
 
   const springConfig = {
     stiffness: 300,
@@ -35,6 +40,11 @@ export default function ResultDisplay({ humanAge }: ResultDisplayProps) {
       >
         <motion.span>{displayValue}</motion.span>
       </motion.div>
+      {isVeryYoungPuppy && (
+        <p className="text-sm text-foreground/50 mt-2">
+          {t('youngPuppyNote')}
+        </p>
+      )}
     </div>
   );
 }

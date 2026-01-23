@@ -67,7 +67,7 @@ export default function Calculator() {
       {/* Result section - горизонтальный на десктопе */}
       <div className="flex items-center justify-center gap-4 mb-4 lg:mb-6 lg:gap-8">
         <DogIllustration dogAgeInYears={dogAgeInYears} />
-        <ResultDisplay humanAge={humanAge} />
+        <ResultDisplay humanAge={humanAge} dogAgeInYears={dogAgeInYears} />
       </div>
 
       {/* Tabs */}

@@ -35,13 +35,13 @@ export default function DatePicker({ onAgeChange }: DatePickerProps) {
     let months = today.getMonth() - birth.getMonth();
     let days = today.getDate() - birth.getDate();
 
-    if (days < 0) {
+    while (days < 0) {
       months--;
       const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
       days += lastMonth.getDate();
     }
 
-    if (months < 0) {
+    while (months < 0) {
       years--;
       months += 12;
     }

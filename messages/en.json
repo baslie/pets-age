@@ -18,7 +18,8 @@
     "yearsOld": "{count, plural, one {# year} other {# years}}",
     "monthsOld": "{count, plural, one {# month} other {# months}}",
     "daysOld": "{count, plural, one {# day} other {# days}}",
-    "ageDisplay": "{years} years, {months} months, {days} days"
+    "ageDisplay": "{years} years, {months} months, {days} days",
+    "youngPuppyNote": "Approximate (formula valid from 8 weeks)"
   },
   "info": {
     "title": "The Science",

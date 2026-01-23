@@ -18,7 +18,8 @@
     "yearsOld": "{count, plural, one {# год} few {# года} many {# лет} other {# лет}}",
     "monthsOld": "{count, plural, one {# месяц} few {# месяца} many {# месяцев} other {# месяцев}}",
     "daysOld": "{count, plural, one {# день} few {# дня} many {# дней} other {# дней}}",
-    "ageDisplay": "{years} лет, {months} мес., {days} дн."
+    "ageDisplay": "{years} лет, {months} мес., {days} дн.",
+    "youngPuppyNote": "Приблизительно (формула точна от 8 недель)"
   },
   "info": {
     "title": "Наука",
