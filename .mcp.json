@@ -26,8 +26,11 @@
       ]
     },
     "shadcn": {
-      "command": "npx",
+      "type": "stdio",
+      "command": "cmd",
       "args": [
+        "/c",
+        "npx",
         "shadcn@latest",
         "mcp"
       ]
