@@ -3,112 +3,80 @@
 ## Проблема
 
 Стандартный код счётчика Яндекс.Метрики не работает корректно с Next.js App Router:
-- Next.js оптимизирует Yandex пиксель через preload, что ломает отслеживание
+- Next.js оптимизирует загрузку скриптов через preload, что может нарушить работу счётчика
 - Клиентская навигация (SPA) не отслеживается стандартным скриптом
-- Нужно вручную отправлять хиты при смене страниц
+- Нужно учитывать GDPR и cookie consent
 
 ## Решение
 
-### Шаг 1. Создать компонент `components/YandexMetrika.tsx`
+Проект использует npm-пакет [`next-yandex-metrica`](https://www.npmjs.com/package/next-yandex-metrica), который предоставляет React-провайдер с автоматическим отслеживанием SPA-навигации.
 
-```tsx
-"use client";
+### Шаг 1. Установка
 
-import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
-import Script from "next/script";
-
-// Замени на свой ID счётчика из Яндекс.Метрики
-const METRIKA_ID = 12345678;
-
-// Типизация глобального объекта window
-declare global {
-  interface Window {
-    ym: (id: number, action: string, ...args: unknown[]) => void;
-  }
-}
-
-export function YandexMetrika() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  // Отслеживание навигации для SPA
-  useEffect(() => {
-    if (typeof window.ym === "function") {
-      const url = pathname + (searchParams.toString() ? "?" + searchParams.toString() : "");
-      window.ym(METRIKA_ID, "hit", url);
-    }
-  }, [pathname, searchParams]);
-
-  return (
-    <>
-      <Script
-        id="yandex-metrika"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-            ym(${METRIKA_ID}, "init", {
-              defer: true,
-              clickmap: true,
-              trackLinks: true,
-              accurateTrackBounce: true,
-              webvisor: true,
-              trackHash: true
-            });
-          `,
-        }}
-      />
-      <noscript>
-        <div>
-          <img
-            src={`https://mc.yandex.ru/watch/${METRIKA_ID}`}
-            style={{ position: "absolute", left: "-9999px" }}
-            alt=""
-          />
-        </div>
-      </noscript>
-    </>
-  );
-}
+```bash
+npm install next-yandex-metrica
 ```
 
-### Шаг 2. Подключить в `app/layout.tsx`
+### Шаг 2. Конфигурация ID счётчика
+
+ID счётчика и утилиты трекинга определены в `lib/analytics.ts`:
+
+```typescript
+// lib/analytics.ts
+
+export const YM_COUNTER_ID = 106346783;
+
+// Проверка cookie consent
+export const isAnalyticsEnabled = () => {
+  if (typeof window === 'undefined') return false;
+  const consent = localStorage.getItem('cookie-consent');
+  return consent === 'accepted';
+};
+```
+
+### Шаг 3. Подключение провайдера
+
+`YandexMetricaProvider` подключается в `app/[locale]/layout.tsx`, оборачивая всё содержимое `<body>`:
 
 ```tsx
-import { Suspense } from "react";
-import { YandexMetrika } from "@/components/YandexMetrika";
+// app/[locale]/layout.tsx
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { YandexMetricaProvider } from "next-yandex-metrica";
+import { YM_COUNTER_ID } from "@/lib/analytics";
+
+export default async function LocaleLayout({ children, params }: Props) {
+  // ...
+
   return (
-    <html lang="ru">
+    <html lang={locale}>
       <body>
-        {children}
-
-        {/* Suspense обязателен для useSearchParams */}
-        <Suspense fallback={null}>
-          <YandexMetrika />
-        </Suspense>
+        <YandexMetricaProvider
+          tagID={YM_COUNTER_ID}
+          initParameters={{
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true,
+            defer: true,
+            trackHash: true,
+          }}
+          router="app"
+        >
+          {/* Контент приложения */}
+        </YandexMetricaProvider>
       </body>
     </html>
   );
 }
 ```
 
+Ключевой параметр — `router="app"`. Он включает автоматическое отслеживание SPA-навигации для App Router (без ручного `usePathname` + `useEffect`).
+
 ## Параметры инициализации
 
 | Параметр | Значение | Описание |
 |----------|----------|----------|
-| `defer` | `true` | **Обязательно!** Отключает автоматическую отправку хита при загрузке (мы отправляем вручную) |
+| `defer` | `true` | **Обязательно!** Отключает автоматическую отправку хита при загрузке (провайдер отправляет его сам) |
 | `clickmap` | `true` | Карта кликов |
 | `trackLinks` | `true` | Автоотслеживание переходов по внешним ссылкам |
 | `accurateTrackBounce` | `true` | Точное определение отказов |
@@ -118,94 +86,105 @@ export default function RootLayout({
 ### Опциональные параметры
 
 ```tsx
-ym(METRIKA_ID, "init", {
-  // ... базовые параметры ...
-  ecommerce: "dataLayer",  // Для e-commerce трекинга
-  triggerEvent: true,      // Событие yacounter{ID}inited при готовности
-});
+<YandexMetricaProvider
+  tagID={YM_COUNTER_ID}
+  initParameters={{
+    // ... базовые параметры ...
+    ecommerce: "dataLayer",  // Для e-commerce трекинга
+    triggerEvent: true,       // Событие yacounter{ID}inited при готовности
+  }}
+  router="app"
+/>
+```
+
+## Отслеживание хитов (page views)
+
+Хиты SPA-навигации отслеживаются автоматически благодаря `router="app"` в провайдере.
+
+Дополнительно, при программном трекинге используется функция `trackPageView` из `lib/analytics.ts`:
+
+```typescript
+// lib/analytics.ts
+
+export const trackPageView = (url: string) => {
+  if (!isAnalyticsEnabled()) return;
+
+  // Google Analytics
+  if (typeof window !== 'undefined' && window.gtag && GA_MEASUREMENT_ID) {
+    window.gtag('config', GA_MEASUREMENT_ID, { page_path: url });
+  }
+
+  // Yandex Metrika
+  if (window.ym && YM_COUNTER_ID) {
+    window.ym(Number(YM_COUNTER_ID), 'hit', url);
+  }
+};
 ```
 
 ## Отслеживание целей
 
 ### Базовый вызов
 
-```tsx
+```typescript
 // В любом клиентском компоненте ("use client")
-window.ym(METRIKA_ID, "reachGoal", "goal_name");
+import { YM_COUNTER_ID } from '@/lib/analytics';
+
+window.ym?.(YM_COUNTER_ID, 'reachGoal', 'goal_name');
 ```
 
-### Пример: отслеживание кликов по определённым ссылкам
+### Пример: трекинг через утилиты analytics.ts
 
-Добавь в компонент `YandexMetrika.tsx`:
+В проекте трекинг событий унифицирован через GA4 `trackEvent`. Для целей Яндекс.Метрики можно вызывать `window.ym` напрямую:
 
-```tsx
-// Отслеживание кликов по Telegram-ссылкам
-useEffect(() => {
-  const handleClick = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    const link = target.closest("a");
-    if (link?.href?.includes("t.me/")) {
-      window.ym(METRIKA_ID, "reachGoal", "telegram_click");
-    }
-  };
-  document.addEventListener("click", handleClick);
-  return () => document.removeEventListener("click", handleClick);
-}, []);
-```
+```typescript
+import { YM_COUNTER_ID, isAnalyticsEnabled } from '@/lib/analytics';
 
-### Пример: глобальная функция для вызова из других компонентов
-
-```tsx
-// В YandexMetrika.tsx добавь в declare global
-declare global {
-  interface Window {
-    ym: (id: number, action: string, ...args: unknown[]) => void;
-    trackTelegramClick: () => void;  // Добавь свою функцию
-  }
-}
-
-// В useEffect
-useEffect(() => {
-  window.trackTelegramClick = () => {
-    if (typeof window.ym === "function") {
-      window.ym(METRIKA_ID, "reachGoal", "telegram_click");
-    }
-  };
-}, []);
-```
-
-Теперь можно вызывать из любого компонента:
-
-```tsx
-// В любом компоненте
-const handleClick = () => {
-  if (typeof window !== "undefined" && window.trackTelegramClick) {
-    window.trackTelegramClick();
-  }
+const trackYMGoal = (goalName: string) => {
+  if (!isAnalyticsEnabled()) return;
+  window.ym?.(YM_COUNTER_ID, 'reachGoal', goalName);
 };
 ```
 
-## Использование с ENV-переменными
+## GDPR и Cookie Consent
 
-Для вынесения ID счётчика в переменные окружения:
+Аналитика активируется только после согласия пользователя. Механизм работает так:
 
-### 1. Создай `.env.local`
+1. **`CookieConsent`** (`components/CookieConsent.tsx`) — показывает баннер при первом визите
+2. Пользователь нажимает «Принять» → `localStorage.setItem('cookie-consent', 'accepted')` → `window.location.reload()`
+3. Пользователь нажимает «Отклонить» → `localStorage.setItem('cookie-consent', 'declined')`
+4. **`isAnalyticsEnabled()`** (`lib/analytics.ts`) — проверяет `localStorage` перед отправкой данных
 
-```env
-NEXT_PUBLIC_YANDEX_METRIKA_ID=12345678
+```typescript
+// lib/analytics.ts
+export const isAnalyticsEnabled = () => {
+  if (typeof window === 'undefined') return false;
+  const consent = localStorage.getItem('cookie-consent');
+  return consent === 'accepted';
+};
 ```
 
-### 2. Измени компонент
+Все функции трекинга (`trackEvent`, `trackPageView`, `trackCalculateAge`, `trackShare`) вызывают `isAnalyticsEnabled()` перед отправкой данных.
 
-```tsx
-const METRIKA_ID = Number(process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID);
+> **Примечание:** `YandexMetricaProvider` загружает скрипт метрики независимо от consent. Функция `isAnalyticsEnabled()` контролирует отправку кастомных событий через `trackEvent`/`trackPageView`.
 
-// Добавь проверку
-if (!METRIKA_ID) {
-  console.warn("Yandex Metrika ID not configured");
-  return null;
+## Верификация домена
+
+Верификация в Яндекс.Вебмастере реализована через Metadata API Next.js в `app/[locale]/layout.tsx`:
+
+```typescript
+// app/[locale]/layout.tsx → generateMetadata()
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    // ...
+    verification: {
+      yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+    },
+  };
 }
 ```
+
+Код верификации задаётся через переменную окружения `NEXT_PUBLIC_YANDEX_VERIFICATION` в `.env.local`.
 
 ## Проверка работы
 
@@ -213,39 +192,33 @@ if (!METRIKA_ID) {
 2. Отфильтруй по `mc.yandex`
 3. Должны быть запросы:
    - `tag.js` — загрузка скрипта метрики
-   - `watch/YOUR_ID` — отправка данных
+   - `watch/106346783` — отправка данных
 
-### Отладка целей
+### Отладка
 
 В консоли браузера:
+
 ```js
 // Проверить что метрика загружена
 typeof window.ym // должно быть "function"
 
 // Вручную отправить цель
-window.ym(12345678, "reachGoal", "test_goal");
+window.ym(106346783, "reachGoal", "test_goal");
+
+// Проверить consent
+localStorage.getItem('cookie-consent') // "accepted" | "declined" | null
 ```
 
-## Верификация домена (опционально)
+## Архитектура
 
-Для подтверждения владения сайтом в Яндекс.Вебмастер, добавь в `<head>`:
-
-```tsx
-// В app/layout.tsx
-<head>
-  <meta name="yandex-verification" content="YOUR_VERIFICATION_CODE" />
-</head>
 ```
-
-## Важные нюансы
-
-1. **Suspense обязателен** — `useSearchParams()` требует обёртку в `<Suspense>`
-2. **defer: true обязателен** — без него будет двойной хит при загрузке
-3. **strategy="afterInteractive"** — загружает скрипт после гидратации React
-4. **noscript блок** — для пользователей без JS (SEO, краулеры)
+lib/analytics.ts          ← YM_COUNTER_ID, isAnalyticsEnabled(), trackPageView()
+app/[locale]/layout.tsx   ← YandexMetricaProvider (router="app")
+components/CookieConsent  ← GDPR баннер, управляет localStorage
+```
 
 ## Ссылки
 
-- [GitHub Issue #56882](https://github.com/vercel/next.js/issues/56882) — обсуждение проблемы
+- [next-yandex-metrica](https://www.npmjs.com/package/next-yandex-metrica) — npm-пакет провайдера
 - [Справка Яндекс.Метрики](https://yandex.ru/support/metrica/code/counter-initialize.html) — параметры инициализации
-- [Next.js Script component](https://nextjs.org/docs/app/api-reference/components/script) — документация Script
+- [Next.js Metadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata) — верификация домена
